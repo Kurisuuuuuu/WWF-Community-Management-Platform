@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, au.edu.unsw.infs3634.gamifiedlearning.Activity.RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
@@ -85,13 +85,6 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                UserModel userModel = LitePal.where("name = ?", name).findFirst(UserModel.class);
-                                if (userModel == null) {
-                                    Toast.makeText(LoginActivity.this, "Username does not exists", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                String pwd = userModel.getPwd();
-                                edtPwd.setText(pwd);
                             }
                         })
                         .setNegativeButton("Cancel",null)
@@ -102,15 +95,9 @@ public class LoginActivity extends AppCompatActivity {
 
     //login and error messages
     private void login(String name, String pwd) {
-        UserModel userModel = LitePal.where("name = ? and pwd = ?", name, pwd).findFirst(UserModel.class);
-        if (userModel == null) {
-            Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
-            return;
-        }
         Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         finish();
         startActivity(new Intent(this, MainActivity.class));
-        SPUtil.saveInt(this, "userId", userModel.getId());
 
     }
 }
