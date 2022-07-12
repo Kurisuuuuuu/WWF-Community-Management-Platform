@@ -1,6 +1,7 @@
 package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegisterActivity extends AppCompatActivity {
     private EditText edtName;
     private EditText edtPwd;
+    SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     //username check
     private void register(String name, String pwd) {
-
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(name,pwd);
         //load home page
         Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MainActivity.class);
