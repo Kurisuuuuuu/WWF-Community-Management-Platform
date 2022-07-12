@@ -1,117 +1,63 @@
 package com.example.infs3605communitymanagement;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.util.ArrayList;
 
 public class Project<project> {
-  private String id;
+  private String projectID;
   private String projectTitle;
   private String solutionName;
-  private String location;
-  private String timeZone;
-  private String shortDescription;
-  private String imageName;
-  private String website;
-  private String videoLink;
+  private String projectSummary;
+  private String theme;
+  private String supportNeeded;
 
-  public Project(String name, String location, String timeZone, Integer rating, String shortDescription, String imageName, LatLng geoLocation, String website, String videoLink) {
-    this.name = name;
-    this.location = location;
-    this.rating = rating;
-    this.timeZone = timeZone;
-    this.shortDescription = shortDescription;
-    this.imageName = imageName;
-    this.geoLocation = geoLocation;
-    this.website = website;
-    this.videoLink = videoLink;
+  public Project(String projectID, String projectTitle, String solutionName, String projectSummary, String theme, String supportNeeded) {
+    this.projectID = projectID;
+    this.projectTitle = projectTitle;
+    this.solutionName = solutionName;
+    this.projectSummary = projectSummary;
+    this.theme = theme;
+    this.supportNeeded = supportNeeded;
   }
 
   //getters & setters
-  public String getId() {
-    return id;
+  public String getProjectID() {
+    return projectID;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setProjectTitle(String projectTitle) {
+    this.projectTitle = projectTitle;
   }
 
-  public String getName() {
-    return name;
+  public String getSolutionName() {
+    return solutionName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setSolutionName(String solutionName) {
+    this.solutionName = solutionName;
   }
 
-  public String getNameid() {
-    return nameid;
+  public String getProjectSummary() {
+    return projectSummary;
   }
 
-  public void setNameid(String nameid) {
-    this.nameid = nameid;
+  public void setProjectSummary(String projectSummary) {
+    this.projectSummary = projectSummary;
   }
 
-  public Integer getRating() { return rating; }
-
-  public void setRating(Integer rating) {
-    this.rating = rating;
+  public String getTheme() {
+    return theme;
   }
 
-  public String getLocation() {
-    return location;
+  public void setTheme(String theme) {
+    this.theme=theme;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public String getSupportNeeded() {
+    return supportNeeded;
   }
 
-  public String getTimeZone() {
-    return timeZone;
-  }
-
-  public void setTimeZone(String timeZone) {
-    this.timeZone = timeZone;
-  }
-
-  public String getShortDescription() {
-    return shortDescription;
-  }
-
-  public void setShortDescription(String shortDescription) {
-    this.shortDescription = shortDescription;
-  }
-
-  public String getImageName() {
-    return imageName;
-  }
-
-  public void setImageName(String imageName) {
-    this.imageName = imageName;
-  }
-
-  public LatLng getGeoLocation() {
-    return geoLocation;
-  }
-
-  public void setGeoLocation(LatLng geoLocation) {
-    this.geoLocation = geoLocation;
-  }
-
-  public String getWebsite() {
-    return website;
-  }
-
-  public void setWebsite(String govWebsite) {
-    this.website = website;
-  }
-
-  public String getVideoLink() {
-    return videoLink;
-  }
-
-  public void setVideoLink(String videoLink) {
-    this.videoLink = videoLink;
+  public void setSupportNeeded(String supportNeeded) {
+    this.supportNeeded = supportNeeded;
   }
 
   //data
