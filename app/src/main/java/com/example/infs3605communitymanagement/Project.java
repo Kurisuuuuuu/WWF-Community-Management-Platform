@@ -24,6 +24,14 @@ public class Project<project> {
     return projectID;
   }
 
+  public void setProjectID(String projectID) {
+    this.projectID = projectID;
+  }
+
+  public String getProjectTitle() {
+    return projectTitle;
+  }
+
   public void setProjectTitle(String projectTitle) {
     this.projectTitle = projectTitle;
   }
