@@ -10,7 +10,7 @@
     android:paddingBottom="20dp">
 
     <ImageView
-        android:id="@+id/imageViewProject"
+        android:id="@+id/ivProject"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProject"
-        app:layout_constraintTop_toTopOf="@+id/imageViewProject" />
+        app:layout_constraintStart_toEndOf="@+id/ivProject"
+        app:layout_constraintTop_toTopOf="@+id/ivProject" />
 
     <TextView
         android:id="@+id/tvProjectSumary"
