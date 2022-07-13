@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -18,6 +20,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edtPwd;
     SharedPreferences sharedPref;
     public String savedLogin;
+    private Switch swUserType;
+    private boolean userType;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void initView() {
         edtName = findViewById(R.id.etAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
+        swUserType = findViewById(R.id.swUserType);
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             //error messages
@@ -56,17 +61,23 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Password must be within 6-10 digits", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                register(name, pwd);
+                if (swUserType.isChecked()){
+                    userType = true;
+                }else {
+                    userType = false;
+                }
+                register(name, pwd, userType);
             }
         });
     }
 
     //set username & password
-    private void register(String name, String pwd) {
+    private void register(String name, String pwd, boolean userType) {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("userid",name);
         editor.putString("password",pwd);
+        editor.putBoolean("WWF staff",userType);
         editor.commit();
         //load home page
         Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();

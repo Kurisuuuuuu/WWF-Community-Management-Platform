@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     public String savedLogin;
     public String savedUserID;
     public String savedPassword;
+    public boolean savedUserType;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,13 +105,17 @@ public class LoginActivity extends AppCompatActivity {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         savedUserID=sharedPref.getString("userid", "");
         savedPassword=sharedPref.getString("password", "");
+        savedUserType=sharedPref.getBoolean("userType",true );
         if (savedUserID != null){
             Log.d("login success", savedUserID);
         }
-        if (savedUserID.equals(name) && savedPassword.equals(pwd)) {
+        if (savedUserID.equals(name) && savedPassword.equals(pwd) && savedUserType==true) {
+            startActivity(new Intent(this, WWFMainActivity.class));
+            Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
+        } else if (savedUserID.equals(name) && savedPassword.equals(pwd)) {
             startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
-        } else {
+        } else{
             Log.d("savedUserID",savedUserID);
             Log.d("savedPassword",savedPassword);
         }

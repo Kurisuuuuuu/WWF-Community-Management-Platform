@@ -12,14 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import au.edu.unsw.infs3634.cryptobag.API.Coin;
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectViewHolder> implements Filterable {
     public static ProjectAdapter setData;
@@ -87,9 +84,6 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
         String replaceText = project.getProjectTitle().toLowerCase().trim();
         String replacedSpaceText = replaceText.replace(' ', '-');
         String replacedDotText = replacedSpaceText.replace('.', '-');
-        Glide.with(holder.mImage.getContext())
-                .load("https://www.coinlore.com/img/"+replacedDotText+".png")
-                .into(holder.mImage);
     }
     public void setData(List<Project> projects){
         mProjectFiltered.clear();
@@ -110,10 +104,10 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             super(itemView);
             mListener = listener;
             itemView.setOnClickListener(this);
-            mTitle = itemView.findViewById(R.id.tvCoinNameMain);
-            mSummary = itemView.findViewById(R.id.tvPriceMain);
-            mTheme = itemView.findViewById(R.id.tvChangeMain);
-            mSupportNeeded = itemView.findViewById(R.id.imageViewCoin);
+            //mTitle = itemView.findViewById(R.id.tvCoinNameMain);
+            //mSummary = itemView.findViewById(R.id.tvPriceMain);
+            //mTheme = itemView.findViewById(R.id.tvChangeMain);
+            //mSupportNeeded = itemView.findViewById(R.id.imageViewCoin);
         }
         @Override
         public void onClick(View v) {

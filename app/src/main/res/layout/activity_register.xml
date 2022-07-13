@@ -48,14 +48,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Switch
+        android:id="@+id/swUserType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/usertype" />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textColor="@color/black"
         android:text="@string/register"
-        android:layout_height="wrap_content"/>
+        android:textColor="@color/black" />
 
 </LinearLayout>
