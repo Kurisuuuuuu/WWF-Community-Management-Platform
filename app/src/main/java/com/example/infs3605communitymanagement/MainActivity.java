@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new ProjectAdapter(Project.getProjects(), listener);
         mRecyclerView.setAdapter(mAdapter);
 
-        db = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project-database").build();
+        //db = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project-database").build();
     }
 }

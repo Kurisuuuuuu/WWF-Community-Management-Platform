@@ -3,6 +3,7 @@ package com.example.infs3605communitymanagement;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,9 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtPwd;
     SharedPreferences sharedPref;
     public String savedLogin;
-    public String savedUserID;
     public String savedPassword;
-    public boolean savedUserType;
+    public Button tvRegister;
+    public TextView tvReset;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,8 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     //set screen
     private void initView() {
         Button btn_login = findViewById(R.id.btn_login);
-        TextView tv_register = findViewById(R.id.tv_register);
-        TextView tv_reset = findViewById(R.id.tv_reset);
+        tvReset = findViewById(R.id.tv_reset);
         edtName = findViewById(R.id.etAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -70,15 +70,16 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //register button
-        tv_register.setOnClickListener(new View.OnClickListener() {
+        tvRegister = findViewById(R.id.btnRegisterNew);
+        tvRegister.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            public void onClick(View detailView) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
-
         //forget password
-        tv_reset.setOnClickListener(new View.OnClickListener() {
+        tvReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new MaterialAlertDialogBuilder(LoginActivity.this)

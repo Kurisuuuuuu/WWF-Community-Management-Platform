@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:paddingLeft="30dp"
     android:background="@color/white"
@@ -26,7 +27,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etAnswer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="#D6D7D7"
+            android:textColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -47,6 +51,7 @@
             android:id="@+id/edt_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#D6D7D7"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
