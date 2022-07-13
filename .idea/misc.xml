@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/chris/Documents/GitHub/INFS3605CommunityManagement/app/src/main/res/layout/activity_login.xml" value="0.335" />
+        <entry key="..\:/Users/chris/Documents/GitHub/INFS3605CommunityManagement/app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="..\:/Users/chris/Documents/GitHub/INFS3605CommunityManagement/app/src/main/res/layout/activity_register.xml" value="0.1461499493414387" />
+        <entry key="..\:/Users/chris/Documents/GitHub/INFS3605CommunityManagement/app/src/main/res/layout/project_list_row.xml" value="0.25" />
         <entry key="app/src/main/res/drawable-v24/outline_place_24.xml" value="0.121" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.228125" />

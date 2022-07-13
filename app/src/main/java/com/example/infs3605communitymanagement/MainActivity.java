@@ -3,13 +3,17 @@ package com.example.infs3605communitymanagement;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.infs3605communitymanagement.DB.ProjectDatabase;
+
 public class MainActivity extends AppCompatActivity {
     private ProjectAdapter mAdapter;
     private RecyclerView mRecyclerView;
+    private ProjectDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +31,7 @@ public class MainActivity extends AppCompatActivity {
         };
         mAdapter = new ProjectAdapter(Project.getProjects(), listener);
         mRecyclerView.setAdapter(mAdapter);
+
+        db = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project-database").build();
     }
 }

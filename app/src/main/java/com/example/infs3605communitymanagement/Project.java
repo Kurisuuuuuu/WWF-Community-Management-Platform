@@ -1,8 +1,13 @@
 package com.example.infs3605communitymanagement;
 
 import java.util.ArrayList;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Project<project> {
+
+  @PrimaryKey
   private String projectID;
   private String projectTitle;
   private String projectSummary;
