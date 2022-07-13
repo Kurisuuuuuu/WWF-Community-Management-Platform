@@ -75,15 +75,23 @@ public class RegisterActivity extends AppCompatActivity {
     private void register(String name, String pwd, boolean userType) {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("userid",name);
-        editor.putString("password",pwd);
-        editor.putBoolean("WWF staff",userType);
+        if (userType ==true){
+            editor.putString(name,pwd+"!w!w!f!");
+        } else {
+            editor.putString(name,pwd);
+        }
         editor.commit();
         //load home page
         Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        if (userType ==true){
+            Intent intent = new Intent(this, WWFMainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
         finish();
     }
 

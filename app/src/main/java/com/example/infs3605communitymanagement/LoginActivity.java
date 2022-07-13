@@ -103,23 +103,15 @@ public class LoginActivity extends AppCompatActivity {
     //login and error messages
     private void login(String name, String pwd) {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
-        savedUserID=sharedPref.getString("userid", "");
-        savedPassword=sharedPref.getString("password", "");
-        savedUserType=sharedPref.getBoolean("userType",true );
-        if (savedUserID != null){
-            Log.d("login success", savedUserID);
-        }
-        if (savedUserID.equals(name) && savedPassword.equals(pwd) && savedUserType==true) {
+        savedPassword=sharedPref.getString(name, "");
+        if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
             startActivity(new Intent(this, WWFMainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
-        } else if (savedUserID.equals(name) && savedPassword.equals(pwd)) {
+        } else if (savedPassword.equals(pwd)) {
             startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else{
-            Log.d("savedUserID",savedUserID);
             Log.d("savedPassword",savedPassword);
         }
-        finish();
-
     }
 }
