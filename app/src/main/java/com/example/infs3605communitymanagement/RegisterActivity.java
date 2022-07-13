@@ -17,6 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edtName;
     private EditText edtPwd;
     SharedPreferences sharedPref;
+    public String savedLogin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,10 +61,13 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    //username check
+    //set username & password
     private void register(String name, String pwd) {
+        sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(name,pwd);
+        editor.putString("userid",name);
+        editor.putString("password",pwd);
+        editor.commit();
         //load home page
         Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MainActivity.class);

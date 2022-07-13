@@ -22,7 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtName;
     private EditText edtPwd;
     SharedPreferences sharedPref;
-    public String savedText;
+    public String savedLogin;
+    public String savedUserID;
+    public String savedPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,16 +101,20 @@ public class LoginActivity extends AppCompatActivity {
 
     //login and error messages
     private void login(String name, String pwd) {
-        sharedPref = getSharedPreferences(savedText, MODE_PRIVATE);
-        savedText = sharedPref.getString(name,"");
-        if (savedText != null){
-            Log.d(name, savedText);
+        sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
+        savedUserID=sharedPref.getString("userid", "");
+        savedPassword=sharedPref.getString("password", "");
+        if (savedUserID != null){
+            Log.d("login success", savedUserID);
         }
-        Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
-        finish();
-        if (savedText==pwd) {
+        if (savedUserID.equals(name) && savedPassword.equals(pwd)) {
             startActivity(new Intent(this, MainActivity.class));
+            Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
+        } else {
+            Log.d("savedUserID",savedUserID);
+            Log.d("savedPassword",savedPassword);
         }
+        finish();
 
     }
 }
