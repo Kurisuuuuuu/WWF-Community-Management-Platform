@@ -13,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 
@@ -68,7 +66,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     @NonNull
     @Override
     public ProjectViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.coin_list_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.project_list_row, parent, false);
         return new ProjectViewHolder(view, mListener);
     }
 
@@ -78,8 +76,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
         holder.mTitle.setText(project.getProjectTitle());
         holder.mSummary.setText(project.getProjectSummary());
-        holder.mTheme.setText(project.getTheme());
-        holder.mSupportNeeded.setText(project.getSupportNeeded());
+        //holder.mTheme.setText(project.getTheme());
+        //holder.mSupportNeeded.setText(project.getSupportNeeded());
         holder.itemView.setTag(project.getProjectID());
         String replaceText = project.getProjectTitle().toLowerCase().trim();
         String replacedSpaceText = replaceText.replace(' ', '-');
@@ -104,8 +102,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             super(itemView);
             mListener = listener;
             itemView.setOnClickListener(this);
-            //mTitle = itemView.findViewById(R.id.tvCoinNameMain);
-            //mSummary = itemView.findViewById(R.id.tvPriceMain);
+            mTitle = itemView.findViewById(R.id.tvProjectTitle);
+            mSummary = itemView.findViewById(R.id.tvProjectSumary);
             //mTheme = itemView.findViewById(R.id.tvChangeMain);
             //mSupportNeeded = itemView.findViewById(R.id.imageViewCoin);
         }

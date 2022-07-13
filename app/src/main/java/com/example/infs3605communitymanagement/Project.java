@@ -59,12 +59,12 @@ public class Project<project> {
   }
 
   //data
-  /*public static ArrayList<Project> getDestinations() {
+  public static ArrayList<Project> getProjects() {
     ArrayList<Project> projects = new ArrayList<>();
-    projects.add(new Destination("Beijing", "China", "+8", 2, "From ancient walled capital to showpiece megacity in barely a century, Beijing (Běijīng, 北京), spins a breathless yarn of triumph, tragedy, endurance and innovation.", "PEK", new LatLng(39.916668,116.383331), "https://www.lonelyplanet.com/china/beijing", "https://www.youtube.com/watch?v=nFtgFb1XCF8"));
-    return destinations;
+    projects.add(new Project("ID10","Wayfairer - Building community wealth through tourism","Wayfairer is a community-owned accommodation booking platform, where 50% of booking fees are reinvested back into local communities.","Food and agriculture, Conservation, Nature and Oceans, Other: Community Wealth Building","Technical / Knowledge, Financial, Community"));
+    return projects;
   }
-
+/*
   //return destination
   public static Destination findDestination(String name) {
     ArrayList<Destination> destinations = Destination.getDestinations();
