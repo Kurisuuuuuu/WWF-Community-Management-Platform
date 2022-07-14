@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +36,7 @@ public class ProjectListActivity extends AppCompatActivity {
         ProjectAdapter.RecyclerviewClickListener listener = new ProjectAdapter.RecyclerviewClickListener() {
             @Override
             public void onClick(View view, String projectID) {
-                //launchDetailActivity(destinationName);
+                launchDetailActivity(projectID);
             }
         };
         mAdapter = new ProjectAdapter(new ArrayList<Project>(), listener);
@@ -99,5 +100,12 @@ public class ProjectListActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void launchDetailActivity(String message){
+        Intent intent = new Intent (this, ProjectDetailActivity.class);
+        intent.putExtra(ProjectDetailActivity.projectID, message);
+        startActivity(intent);
+        Log.d("Test", message);
     }
 }

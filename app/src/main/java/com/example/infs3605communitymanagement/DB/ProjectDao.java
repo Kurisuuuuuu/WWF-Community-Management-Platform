@@ -14,8 +14,8 @@ public interface ProjectDao {
     @Query("SELECT * FROM project")
     List<Project> getProjects();
 
-    //@Query("SELECT * FROM coin WHERE symbol == :coinSymbol")
-    //Coin getCoinsBySymbol(String coinSymbol);
+    @Query("SELECT * FROM project WHERE projectID == :projectID")
+    Project getProjectByID(String projectID);
 
     @Insert
     void insertProjects (Project... projects);

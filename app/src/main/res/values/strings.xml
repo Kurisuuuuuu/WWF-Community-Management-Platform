@@ -20,4 +20,6 @@
     <string name="usertype">Are you WWF staff?</string>
     <string name="allchallenges">All Challenges</string>
     <string name="foryou">For You</string>
+    <string name="projecttheme">Project Theme: </string>
+    <string name="areaofexperetise">Area of expertise required: </string>
 </resources>
