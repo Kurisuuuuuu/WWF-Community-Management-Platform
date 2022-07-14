@@ -18,7 +18,7 @@ public class User<user> {
   private String areasOfExpertise;
   private String preferredSDGs;
   private String impactTheme;
-  private DateFormat lastLogin;
+  private String lastLogin;
   private String availability;
   private int projectsCanBeAssigned;
   private int commentsNumber;
@@ -27,7 +27,7 @@ public class User<user> {
 
 
   public User(String userID, String fullName, String userType, String bio, String areasOfExpertise,
-              String preferredSDGs, String impactTheme, DateFormat lastLogin, String availability,
+              String preferredSDGs, String impactTheme, String lastLogin, String availability,
               int projectsCanBeAssigned, int commentsNumber, int challengesNumber, String password) {
     this.userID = userID;
     this.fullName = fullName;
@@ -92,9 +92,9 @@ public class User<user> {
     this.impactTheme = impactTheme;
   }
 
-  public DateFormat getLastLogin(){ return lastLogin;}
+  public String getLastLogin(){ return lastLogin;}
 
-  public void setLastLogin(DateFormat lastLogin){
+  public void setLastLogin(String lastLogin){
     this.lastLogin = lastLogin;
   }
 
