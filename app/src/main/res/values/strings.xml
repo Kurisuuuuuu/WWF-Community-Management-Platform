@@ -1,31 +1,12 @@
 <resources>
     <string name="app_name">INFS3605 Community Management</string>
-    <string name="website">Learn more about this country</string>
-    <string name="map">Check this country on map</string>
     <string name="sort">Sort</string>
     <string name="search">Search</string>
     <string name="name_increase">Name (A-Z)</string>
     <string name="name_decrease">Name (Z-A)</string>
     <string name="save">Save</string>
     <string name="note">Note session</string>
-    <string name="africa">Africa</string>
-    <string name="asia">Asia</string>
-    <string name="europe">Europe</string>
-    <string name="america">America</string>
-    <string name="oceania">Oceania</string>
     <string name="check">Check</string>
-    <string name="groupname">Group Name</string>
-    <string name="groupmember">Group Member</string>
-    <string name="groupmemberlist">\nz5190734 Ho Yin Wong\nz5278859 Anson Yip
-        \nz5240218 Xingchen Liang\nz5166922 Leon Bao</string>
-    <string name="aboutgeonius">About Geonius</string>
-    <string name="aboutgeoniusdetails">Consider the situation of mobile Application uses
-        and development is a new and rapidly growing sector (Islam, Islam and Mazumder, 2010),
-        Geonius was designed as a mobile application that allows UNSW students to obtain
-        fundamental geographical knowledge about different countries just with their smartphones.
-        Based on the fact that almost every student has one or even more mobile devices,
-        the users could access Geonius anywhere and anytime they want,
-        which is convenient for them to explore the world. </string>
     <string name="register">Register</string>
     <string name="username">Username</string>
     <string name="password">Password</string>

@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -41,7 +43,16 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
                 } else {
                     ArrayList<Project> filteredList = new ArrayList<>();
                     for(Project project : mProject) {
-                        if(project.getProjectTitle().toLowerCase().contains(charString.toLowerCase())) {
+                        if(project.getProjectTitle().toLowerCase().contains(charString.toLowerCase())&& !filteredList.contains(project)) {
+                            filteredList.add(project);
+                        }
+                        if(project.getProjectID().toLowerCase().contains(charString.toLowerCase())&& !filteredList.contains(project)) {
+                            filteredList.add(project);
+                        }
+                        if(project.getTheme().toLowerCase().contains(charString.toLowerCase())&& !filteredList.contains(project)) {
+                            filteredList.add(project);
+                        }
+                        if(project.getSupportNeeded().toLowerCase().contains(charString.toLowerCase())&& !filteredList.contains(project)) {
                             filteredList.add(project);
                         }
                     }
@@ -123,21 +134,25 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     }
 
     // Sort method
-    /*public void sort(final int sortMethod) {
-        if(mCoinFiltered.size() > 0) {
-            Collections.sort(mCoinFiltered, new Comparator<Coin>() {
+    public void sort(final int sortMethod) {
+        if(mProjectFiltered.size() > 0) {
+            Collections.sort(mProject, new Comparator<Project>() {
                 @Override
-                public int compare(Coin o1, Coin o2) {
-                    if(sortMethod == 1) {
-                        return o1.getName().compareTo(o2.getName());
-                    } else if(sortMethod == 2)
-                        return Double.valueOf(o1.getPriceUsd()).compareTo(Double.valueOf(o2.getPriceUsd()));
-                    return o1.getName().compareTo(o2.getName());
-                }
+                public int compare(Project o1, Project o2) {
+                    //Name (A-Z)
+                    if (sortMethod == 1) {
+                        Log.d("1", "");
+                        return o1.getProjectTitle().compareTo(o2.getProjectTitle());
+                    } else if (sortMethod == 2) {
+                        Log.d("2", "");
+                        return o2.getProjectTitle().compareTo(o1.getProjectTitle());
+                    } else {
+                    }
+                    return o1.getProjectTitle().compareTo(o2.getProjectTitle());}
             });
         }
         notifyDataSetChanged();
     }
 
-*/
+
 }
