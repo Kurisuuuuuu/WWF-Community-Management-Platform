@@ -37,4 +37,6 @@
     <string name="next">Next</string>
     <string name="enteranswer">Please enter your answer here</string>
     <string name="usertype">Are you WWF staff?</string>
+    <string name="allchallenges">All Challenges</string>
+    <string name="foryou">For You</string>
 </resources>

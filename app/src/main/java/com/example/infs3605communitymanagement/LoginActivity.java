@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {
-            startActivity(new Intent(this, ProjectListActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else{
             Log.d("savedPassword",savedPassword);
