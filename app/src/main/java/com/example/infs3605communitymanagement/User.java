@@ -1,8 +1,16 @@
 package com.example.infs3605communitymanagement;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.text.DateFormat;
 
+@Entity
 public class User<user> {
+
+  @PrimaryKey
+  @NonNull
   private String userID;
   private String fullName;
   private String userType;
