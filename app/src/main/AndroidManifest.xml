@@ -18,10 +18,10 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ProjectListActivity"
             android:exported="false"/>
         <activity
-            android:name=".WWFMainActivity"
+            android:name=".MainActivity"
             android:exported="false"/>
         <activity
             android:name=".LoginActivity"

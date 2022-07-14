@@ -89,9 +89,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
         String replacedSpaceText = replaceText.replace(' ', '-');
         String replacedDotText = replacedSpaceText.replace('.', '-');
     }
-    public void setData(List<Project> projects){
+    public void setData(List<Project> project){
         mProjectFiltered.clear();
-        mProjectFiltered.addAll(projects);
+        mProjectFiltered.addAll(project);
         notifyDataSetChanged();
     }
     @Override

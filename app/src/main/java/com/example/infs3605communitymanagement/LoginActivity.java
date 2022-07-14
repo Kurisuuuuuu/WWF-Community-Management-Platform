@@ -3,7 +3,6 @@ package com.example.infs3605communitymanagement;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -106,10 +105,10 @@ public class LoginActivity extends AppCompatActivity {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         savedPassword=sharedPref.getString(name, "");
         if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
-            startActivity(new Intent(this, WWFMainActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, ProjectListActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else{
             Log.d("savedPassword",savedPassword);

@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.infs3605communitymanagement.Project;
 
-@Database(entities = {Project.class}, version = 1)
+@Database(entities = {Project.class}, version = 1, exportSchema = false)
 
 public abstract class ProjectDatabase extends RoomDatabase {
 

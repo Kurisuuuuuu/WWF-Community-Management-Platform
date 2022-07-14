@@ -1,13 +1,16 @@
 package com.example.infs3605communitymanagement;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Project<project> {
+public class Project{
 
   @PrimaryKey
+  @NonNull
   private String projectID;
   private String projectTitle;
   private String projectSummary;
@@ -74,6 +77,7 @@ public class Project<project> {
   }
 
   //data
+/*
   public static ArrayList<Project> getProjects() {
     ArrayList<Project> projects = new ArrayList<>();
     projects.add(new Project("ID10","Wayfairer - Building community wealth through tourism","Wayfairer is a community-owned accommodation booking platform, where 50% of booking fees are reinvested back into local communities.","Food and agriculture, Conservation, Nature and Oceans, Other: Community Wealth Building","Technical / Knowledge, Financial, Community", "https://storage.googleapis.com/eu-impactio-prod.appspot.com/impactio-v4/projects/0x587b39a9d3d0462fa6c38470aa3dc2e8?1648607395716"));
