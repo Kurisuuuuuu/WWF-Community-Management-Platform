@@ -6,13 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executors;
 
 public class ProjectListActivity extends AppCompatActivity {
@@ -23,7 +21,7 @@ public class ProjectListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_product_list);
         setTitle("WWF Community Management");
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);
