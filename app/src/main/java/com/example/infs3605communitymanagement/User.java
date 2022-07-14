@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 import java.text.DateFormat;
 
 @Entity
-public class User<user> {
+public class User{
 
   @PrimaryKey
   @NonNull
