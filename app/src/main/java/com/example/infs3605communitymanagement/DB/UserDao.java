@@ -13,11 +13,11 @@ import java.util.List;
 public interface UserDao {
 
     @Query("SELECT * FROM user")
-    List<User> getProjects();
+    List<User> getUsers();
 
     @Insert
-    void insertProjects (User... users);
+    void insertUsers (User... users);
 
     @Delete
-    void deleteProjects(User... users);
+    void deleteUsers(User... users);
 }

@@ -18,6 +18,9 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".UserListActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ProjectListActivity"
             android:exported="false"/>
         <activity

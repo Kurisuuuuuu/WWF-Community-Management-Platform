@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         savedPassword=sharedPref.getString(name, "");
         if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, UserListActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {
             startActivity(new Intent(this, MainActivity.class));

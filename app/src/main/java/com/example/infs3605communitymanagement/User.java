@@ -131,7 +131,7 @@ public class User{
   //data
   /*public static ArrayList<Project> getDestinations() {
     ArrayList<Project> projects = new ArrayList<>();
-    projects.add(new Destination("Beijing", "China", "+8", 2, "From ancient walled capital to showpiece megacity in barely a century, Beijing (Běijīng, 北京), spins a breathless yarn of triumph, tragedy, endurance and innovation.", "PEK", new LatLng(39.916668,116.383331), "https://www.lonelyplanet.com/china/beijing", "https://www.youtube.com/watch?v=nFtgFb1XCF8"));
+
     return destinations;
   }
 
