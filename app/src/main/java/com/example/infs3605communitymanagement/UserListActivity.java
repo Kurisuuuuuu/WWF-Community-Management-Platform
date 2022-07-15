@@ -43,15 +43,16 @@ public class UserListActivity extends AppCompatActivity {
 
         //implementation of RoomDatabase
         mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+                .fallbackToDestructiveMigration()
                 .build();
-      /*  Executors.newSingleThreadExecutor().execute(new Runnable() {
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 mDb.userDao().deleteUsers(mDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
                 mDb.userDao().insertUsers(User.getUser().toArray(new User[0]));
             }
         });
-*/
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {

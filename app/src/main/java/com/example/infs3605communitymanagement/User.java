@@ -128,7 +128,7 @@ public class User{
   public void setPassword(String password){
     this.password = password;
   }
-/*
+
   //data
   public static ArrayList<User> getUser() {
     ArrayList<User> users = new ArrayList<>();

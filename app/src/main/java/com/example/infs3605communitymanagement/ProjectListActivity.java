@@ -43,8 +43,10 @@ public class ProjectListActivity extends AppCompatActivity {
 
         //implementation of RoomDatabase
         mDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
+                .fallbackToDestructiveMigration()
                 .build();
-        /*Executors.newSingleThreadExecutor().execute(new Runnable() {
+        /*
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 mDb.projectDao().deleteProjects(mDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
