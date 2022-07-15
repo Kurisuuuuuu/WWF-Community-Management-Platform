@@ -22,4 +22,46 @@
     <string name="foryou">For You</string>
     <string name="projecttheme">Project Theme: </string>
     <string name="areaofexperetise">Area of expertise required: </string>
+
+    <string-array name="industries_array">
+        <item>Manufacturing</item>
+        <item>Finance and insurance</item>
+        <item>Professional and business services</item>
+        <item>Retail and wholesale</item>
+        <item>Healthcare</item>
+        <item>Transportation</item>
+        <item>Education</item>
+        <item>Media</item>
+    </string-array>
+
+    <string-array name="expertise_array">
+        <item>Business analytics</item>
+        <item>Consulting</item>
+        <item>Database administration</item>
+        <item>Design</item>
+        <item>Engineering</item>
+        <item>Food preparation</item>
+        <item>Forklift operation</item>
+        <item>Fundraising</item>
+        <item>Horticulture</item>
+        <item>Information technology</item>
+        <item>Journalism</item>
+        <item>Management</item>
+        <item>Media production</item>
+        <item>Nursing</item>
+        <item>Office administration</item>
+        <item>Programming</item>
+        <item>Software development</item>
+        <item>Truck driving</item>
+        <item>UI/UX design</item>
+    </string-array>
+
+    <string-array name="experience_array">
+        <item>0-1 years</item>
+        <item>1-2 years</item>
+        <item>2-4 years</item>
+        <item>4-6 years</item>
+        <item>6-8 years</item>
+        <item>10+ years</item>
+    </string-array>
 </resources>

@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/industrySpinner"
         android:layout_width="352dp"
         android:layout_height="41dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="312dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,5 +44,16 @@
         android:layout_height="wrap_content"
         android:text="Please enter your current experience"
         tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="238dp" />
+        tools:layout_editor_absoluteY="216dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Industry"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spinner" />
 </androidx.constraintlayout.widget.ConstraintLayout>
