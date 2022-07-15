@@ -29,7 +29,7 @@ public class UserListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
-        setTitle("WWF Community Management");
+        setTitle("User list");
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -44,11 +44,11 @@ public class UserListActivity extends AppCompatActivity {
         //implementation of RoomDatabase
         mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
                 .build();
-        /*Executors.newSingleThreadExecutor().execute(new Runnable() {
+      /*  Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                mDb.projectDao().deleteProjects(mDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
-                mDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
+                mDb.userDao().deleteUsers(mDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
+                mDb.userDao().insertUsers(User.getUser().toArray(new User[0]));
             }
         });
 */

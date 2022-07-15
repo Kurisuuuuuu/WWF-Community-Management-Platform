@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 
 @Entity
 public class User{
@@ -127,14 +128,16 @@ public class User{
   public void setPassword(String password){
     this.password = password;
   }
-
+/*
   //data
-  /*public static ArrayList<Project> getDestinations() {
-    ArrayList<Project> projects = new ArrayList<>();
-
-    return destinations;
+  public static ArrayList<User> getUser() {
+    ArrayList<User> users = new ArrayList<>();
+    users.add(new User("ID7","Anorah Test","Curator","Josephine Sample opens the line of communication between clients, customers, and businesses to get projects done. With over 20 years in both public and private sectors, Melanie has experience in management consultation, team building, professional development, strategic implementation, and company collaboration. Melanie has managed projects at TechPoint International, Cyberry, and Induster, where she was a finalist for the PMI® Project of the Year. Melanie holds an MBA from Dartmouth University and a current PMP® certification.",
+            "Design thinking, Technology, User experience, Project management, Design", "Sustainable Cities And Communities, Life On Land, Life Below Water, Partnerships For The Goals, Climate Action, Industry Innovation And Infrastructure",
+            "Climate and Energy, Conservation, Nature and Ocean","5 June 2022, 10 pm GMT","1-hour a week",1,0,0,"abc123"));
+    return users;
   }
-
+/*
   //return destination
   public static Destination findDestination(String name) {
     ArrayList<Destination> destinations = Destination.getDestinations();
