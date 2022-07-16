@@ -45,22 +45,18 @@ public class ProjectListActivity extends AppCompatActivity {
         mDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
                 .fallbackToDestructiveMigration()
                 .build();
-        /*
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
+
                 mDb.projectDao().deleteProjects(mDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
                 mDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
-            }
-        });
-*/
-        Executors.newSingleThreadExecutor().execute(new Runnable() {
-            @Override
-            public void run() {
                 ArrayList<Project> project = (ArrayList<Project>) mDb.projectDao().getProjects();
                 mAdapter.setData(project);
             }
         });
+
         mRecyclerView.setAdapter(mAdapter);
     }
     //search & sort

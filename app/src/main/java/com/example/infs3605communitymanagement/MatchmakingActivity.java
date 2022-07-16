@@ -20,40 +20,46 @@ import com.example.infs3605communitymanagement.DB.UserDatabase;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 
-public class UserListActivity extends AppCompatActivity {
-    private UserAdapter mAdapter;
+public class MatchmakingActivity extends AppCompatActivity {
+    private ProjectAdapter mAdapter;
     private RecyclerView mRecyclerView;
-    private UserDatabase mDb;
+    private ProjectDatabase mProjectDb;
+    private UserDatabase mUserDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
-        setTitle("User list");
+        setTitle("WWF Community Management");
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        UserAdapter.RecyclerviewClickListener listener = new UserAdapter.RecyclerviewClickListener() {
+        ProjectAdapter.RecyclerviewClickListener listener = new ProjectAdapter.RecyclerviewClickListener() {
             @Override
             public void onClick(View view, String projectID) {
-                //launchDetailActivity(projectID);
+                launchDetailActivity(projectID);
             }
         };
-        mAdapter = new UserAdapter(new ArrayList<User>(), listener);
+        mAdapter = new ProjectAdapter(new ArrayList<Project>(), listener);
 
         //implementation of RoomDatabase
-        mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+        mProjectDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
                 .fallbackToDestructiveMigration()
                 .build();
+        mUserDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+                .fallbackToDestructiveMigration()
+                .build();
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                mDb.userDao().deleteUsers(mDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
-                mDb.userDao().insertUsers(User.getUser().toArray(new User[0]));
-                ArrayList<User> user = (ArrayList<User>) mDb.userDao().getUsers();
-                mAdapter.setData(user);
+                mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
+                mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
+                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjects();
+                mAdapter.setData(project);
             }
         });
+
         mRecyclerView.setAdapter(mAdapter);
     }
     //search & sort
@@ -79,7 +85,7 @@ public class UserListActivity extends AppCompatActivity {
         });
         return true;
     }
-/*
+
     //menu buttons (sort & save note)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -103,5 +109,4 @@ public class UserListActivity extends AppCompatActivity {
         startActivity(intent);
         Log.d("Test", message);
     }
- */
 }
