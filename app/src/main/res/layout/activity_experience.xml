@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="493dp"
+        android:layout_height="824dp"
+        app:srcCompat="@drawable/Wallpaper"
+        tools:layout_editor_absoluteX="-41dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <Spinner
         android:id="@+id/industrySpinner"
         android:layout_width="352dp"
