@@ -18,8 +18,9 @@ public interface ProjectDao {
     @Query("SELECT * FROM project WHERE projectID == :projectID")
     Project getProjectByID(String projectID);
 
-    @Query("SELECT * FROM project WHERE curatorAssigned < 4")
-    Project getProjectNeedCurators();
+    @Query("SELECT * FROM project WHERE curatorAssigned < 4 AND supportNeeded LIKE " +
+            ":areaOfExpertise AND theme LIKE :theme")
+    List<Project> getProjectMatchCurators(String areaOfExpertise, String theme);
 
     @Insert
     void insertProjects (Project... projects);

@@ -18,7 +18,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edtName;
     private EditText edtPwd;
     SharedPreferences sharedPref;
+    SharedPreferences sharedPrefUser;
     public String savedLogin;
+    public String user;
     private Switch swUserType;
     private boolean userType;
 
@@ -83,10 +85,18 @@ public class RegisterActivity extends AppCompatActivity {
         //load home page
         Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();
         if (userType ==true){
+            sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+            SharedPreferences.Editor editorUser = sharedPrefUser.edit();
+            editorUser.putString("current user",name);
+            editorUser.commit();
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         } else {
+            sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+            SharedPreferences.Editor editorUser = sharedPrefUser.edit();
+            editorUser.putString("current user",name);
+            editorUser.commit();
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);

@@ -22,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtName;
     private EditText edtPwd;
     SharedPreferences sharedPref;
+    SharedPreferences sharedPrefUser;
+    public String user;
     public String savedLogin;
     public String savedPassword;
     public Button tvRegister;
@@ -105,9 +107,17 @@ public class LoginActivity extends AppCompatActivity {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         savedPassword=sharedPref.getString(name, "");
         if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
+            sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+            SharedPreferences.Editor editorUser = sharedPrefUser.edit();
+            editorUser.putString("current user",name);
+            editorUser.commit();
             startActivity(new Intent(this, UserListActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {
+            sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+            SharedPreferences.Editor editorUser = sharedPrefUser.edit();
+            editorUser.putString("current user",name);
+            editorUser.commit();
             startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else{

@@ -1,6 +1,7 @@
 package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 
 public class MatchmakingActivity extends AppCompatActivity {
@@ -25,6 +27,13 @@ public class MatchmakingActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ProjectDatabase mProjectDb;
     private UserDatabase mUserDb;
+    SharedPreferences sharedPrefUser;
+    public String user;
+    public String areaOfExpertise;
+    public String theme;
+    public int projectsCanBeAssigned;
+    public int challengesNumber;
+    public User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,9 @@ public class MatchmakingActivity extends AppCompatActivity {
         };
         mAdapter = new ProjectAdapter(new ArrayList<Project>(), listener);
 
+        sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+        user=sharedPrefUser.getString("current user", "");
+        Log.d("user", user);
         //implementation of RoomDatabase
         mProjectDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
                 .fallbackToDestructiveMigration()
@@ -53,9 +65,14 @@ public class MatchmakingActivity extends AppCompatActivity {
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
-                mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
-                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjects();
+                //get info from user db
+                currentUser = mUserDb.userDao().getUserByID(user);
+                areaOfExpertise = currentUser.getAreasOfExpertise();
+                theme = currentUser.getImpactTheme();
+                projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
+                challengesNumber = currentUser.getChallengesNumber();
+
+                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(areaOfExpertise,theme);
                 mAdapter.setData(project);
             }
         });

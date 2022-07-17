@@ -25,5 +25,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageButton btnForYou = findViewById(R.id.iBtnForYou);
+        btnForYou.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View webView) {
+                Intent intent = new Intent(MainActivity.this,MatchmakingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
