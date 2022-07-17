@@ -91,7 +91,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         String replacedSpaceText = replaceText.replace(' ', '-');
         String replacedDotText = replacedSpaceText.replace('.', '-');
     }
-    public void setData(List<User> user){
+    public void setData(ArrayList<User> user){
         mUserFiltered.clear();
         mUserFiltered.addAll(user);
         notifyDataSetChanged();

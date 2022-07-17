@@ -50,8 +50,8 @@ public class ProjectListActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                //mDb.projectDao().deleteProjects(mDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
-                //mDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
+                mDb.projectDao().deleteProjects(mDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
+                mDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
                 ArrayList<Project> project = (ArrayList<Project>) mDb.projectDao().getProjects();
                 mAdapter.setData(project);
             }
