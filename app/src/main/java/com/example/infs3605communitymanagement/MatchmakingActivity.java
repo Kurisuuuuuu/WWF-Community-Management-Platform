@@ -33,7 +33,7 @@ public class MatchmakingActivity extends AppCompatActivity {
     public String theme;
     public int projectsCanBeAssigned;
     public int challengesNumber;
-    public User currentUser;
+    public List<User> currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +66,12 @@ public class MatchmakingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //get info from user db
-                currentUser = mUserDb.userDao().getUserByID(user);
-                areaOfExpertise = currentUser.getAreasOfExpertise();
-                theme = currentUser.getImpactTheme();
-                projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
-                challengesNumber = currentUser.getChallengesNumber();
+                currentUser = mUserDb.userDao().getUsers();
+                Log.d("current user", String.valueOf(currentUser));
+                //areaOfExpertise = currentUser.getAreasOfExpertise();
+                //theme = currentUser.getImpactTheme();
+                //projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
+                //challengesNumber = currentUser.getChallengesNumber();
 
                 ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(areaOfExpertise,theme);
                 mAdapter.setData(project);

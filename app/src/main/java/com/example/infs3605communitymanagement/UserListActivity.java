@@ -18,12 +18,14 @@ import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 
 public class UserListActivity extends AppCompatActivity {
     private UserAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private UserDatabase mDb;
+    public ArrayList<User> user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +47,22 @@ public class UserListActivity extends AppCompatActivity {
         mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
                 .fallbackToDestructiveMigration()
                 .build();
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 mDb.userDao().deleteUsers(mDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
-                mDb.userDao().insertUsers(User.getUser().toArray(new User[0]));
-                ArrayList<User> user = (ArrayList<User>) mDb.userDao().getUsers();
-                mAdapter.setData(user);
+                mDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
+
             }
         });
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                user = (ArrayList<User>) mDb.userDao().getUsers();
+            }
+        });
+        mAdapter.setData(user);
         mRecyclerView.setAdapter(mAdapter);
     }
     //search & sort

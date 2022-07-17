@@ -20,7 +20,7 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE challengesNumber < projectsCanBeAssigned")
     User getUsersCanBeAssigned();
 
-    @Query("SELECT * FROM user WHERE userID = :userID")
+    @Query("SELECT * FROM user WHERE userID == :userID")
     User getUserByID(String userID);
 
     @Insert
