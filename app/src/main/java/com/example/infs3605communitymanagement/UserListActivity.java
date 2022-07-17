@@ -47,7 +47,7 @@ public class UserListActivity extends AppCompatActivity {
         mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
                 .fallbackToDestructiveMigration()
                 .build();
-
+/*
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
@@ -56,13 +56,21 @@ public class UserListActivity extends AppCompatActivity {
 
             }
         });
+
+ */
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 user = (ArrayList<User>) mDb.userDao().getUsers();
+                mAdapter.setData(user);
+                if (user == null){
+                    Log.d("user", "null");
+                } else {
+                    Log.d("user","normal");
+                }
             }
         });
-        mAdapter.setData(user);
+
         mRecyclerView.setAdapter(mAdapter);
     }
     //search & sort
