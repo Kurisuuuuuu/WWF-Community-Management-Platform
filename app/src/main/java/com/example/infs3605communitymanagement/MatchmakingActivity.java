@@ -38,7 +38,7 @@ public class MatchmakingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_list);
+        setContentView(R.layout.activity_project_list);
         setTitle("WWF Community Management");
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);

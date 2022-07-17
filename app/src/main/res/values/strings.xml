@@ -22,6 +22,7 @@
     <string name="foryou">For You</string>
     <string name="projecttheme">Project Theme: </string>
     <string name="areaofexperetise">Area of expertise required: </string>
+    <string name="enterindustry">Please enter your industry</string>
 
     <string-array name="industries_array">
         <item>Manufacturing</item>

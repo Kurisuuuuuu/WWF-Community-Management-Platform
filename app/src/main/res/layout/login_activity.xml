@@ -35,10 +35,10 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="354dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="60dp"
         android:background="@color/black"
-        android:text="Log In"
+        android:text="@string/login"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/linkedInLogin"
         android:layout_width="354dp"
-        android:layout_height="49dp"
+        android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:background="@color/blue"
         android:text="Log In with LinkedIn"
@@ -59,7 +59,7 @@
     <Button
         android:id="@+id/googleLogIn"
         android:layout_width="354dp"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:background="@color/red"
         android:text=" Log In with Google"
         android:textColor="#FAF9F9"
@@ -68,12 +68,13 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linkedInLogin"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.097"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btnRegisterNew"
         android:layout_width="354dp"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:background="@color/grey"
         android:text="Sign Up"
         android:textColor="#FAF9F9"

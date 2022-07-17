@@ -4,15 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/btnLaunchVideo"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView3"
+<<<<<<< HEAD
+        android:layout_width="382dp"
+        android:layout_height="752dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+=======
         android:layout_width="493dp"
         android:layout_height="824dp"
-        app:srcCompat="@drawable/Wallpaper"
-        tools:layout_editor_absoluteX="-41dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wallpaper" />
+>>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
 
     <TextView
         android:id="@+id/tvProjectDetailTitle"

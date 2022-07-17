@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
             SharedPreferences.Editor editorUser = sharedPrefUser.edit();
             editorUser.putString("current user",name);
             editorUser.commit();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(RegisterActivity.this, ExperienceActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         } else {
@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
             SharedPreferences.Editor editorUser = sharedPrefUser.edit();
             editorUser.putString("current user",name);
             editorUser.commit();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(RegisterActivity.this, ExperienceActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
