@@ -7,14 +7,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-<<<<<<< HEAD
-        android:layout_width="575dp"
-        android:layout_height="829dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="493dp"
+        android:layout_height="824dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938"
         app:srcCompat="@drawable/wallpaper" />
 
     <Spinner
@@ -60,23 +57,10 @@
         app:layout_constraintStart_toStartOf="@+id/industrySpinner"
         app:layout_constraintTop_toBottomOf="@+id/industrySpinner"
         app:layout_constraintVertical_bias="0.054" />
-=======
-        android:layout_width="493dp"
-        android:layout_height="824dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wallpaper" />
-<<<<<<< HEAD
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
-=======
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
 
     <Spinner
         android:id="@+id/industrySpinner"
         android:layout_width="352dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:layout_height="48dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="44dp"
@@ -96,22 +80,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-=======
-        android:layout_height="41dp"
-        android:layout_marginTop="312dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
-=======
-        android:layout_height="41dp"
-        android:layout_marginTop="312dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
+
 
     <TextView
         android:id="@+id/textView"
@@ -130,32 +99,16 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:layout_marginTop="24dp"
-        android:text="Please enter your current experience"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-=======
         android:layout_marginTop="30dp"
         android:text="Please enter your current experience"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
-=======
-        android:layout_marginTop="30dp"
-        android:text="Please enter your current experience"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:layout_marginStart="12dp"
         android:text="Industry"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -174,19 +127,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/experienceSpinner" />
 
-=======
-        android:text="Industry"
-        app:layout_constraintBottom_toBottomOf="parent"
-=======
-        android:text="Industry"
-        app:layout_constraintBottom_toBottomOf="parent"
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.163" />
-<<<<<<< HEAD
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
-=======
->>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
 </androidx.constraintlayout.widget.ConstraintLayout>

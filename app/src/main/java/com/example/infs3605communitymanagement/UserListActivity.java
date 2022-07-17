@@ -58,12 +58,17 @@ public class UserListActivity extends AppCompatActivity {
             @Override
             public void run() {
                 user = (ArrayList<User>) mDb.userDao().getUsers();
-                mAdapter.setData(user);
-                if (user == null){
-                    Log.d("user", "null");
-                } else {
-                    Log.d("user","normal");
-                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.setData(user);
+                        if (user == null){
+                            Log.d("user", "null");
+                        } else {
+                            Log.d("user","normal");
+                        }
+                    }
+                });
             }
         });
 
