@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="493dp"
+        android:layout_height="824dp"
+        app:srcCompat="@drawable/Wallpaper"
+        tools:layout_editor_absoluteX="-41dp" />
+
     <TextView
         android:id="@+id/tvProjectDetailTitle"
         android:layout_width="wrap_content"
@@ -15,6 +22,7 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivProjectImage" />
@@ -48,6 +56,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="88dp"
         android:text="@string/projecttheme"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectDetailSummary" />
 
@@ -62,10 +71,11 @@
 
     <TextView
         android:id="@+id/tvAreaofExpertise"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="61dp"
         android:layout_marginTop="30dp"
         android:text="@string/areaofexperetise"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectThemeText" />
 
