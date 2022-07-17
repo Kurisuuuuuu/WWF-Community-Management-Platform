@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/btnLaunchVideo"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="493dp"
         android:layout_height="824dp"
-        app:srcCompat="@drawable/Wallpaper"
-        tools:layout_editor_absoluteX="-41dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wallpaper" />
 
     <TextView
         android:id="@+id/tvProjectDetailTitle"

@@ -1,11 +1,9 @@
 package com.example.infs3605communitymanagement;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -14,11 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executors;
 
 public class UserListActivity extends AppCompatActivity {
@@ -30,7 +26,7 @@ public class UserListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_list);
+        setContentView(R.layout.activity_project_list);
         setTitle("User list");
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);
