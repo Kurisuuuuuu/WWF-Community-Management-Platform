@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/main/res/layout/activity_product_list.xml
         android:layout_width="386dp"
         android:layout_height="751dp"
@@ -15,18 +16,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 =======
+=======
+>>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
         android:layout_width="493dp"
         android:layout_height="824dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wallpaper" />
+<<<<<<< HEAD
 >>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97:app/src/main/res/layout/activity_project_list.xml
+=======
+>>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tvList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/main/res/layout/activity_product_list.xml
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,5 +42,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 >>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97:app/src/main/res/layout/activity_project_list.xml
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+>>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
 
 </androidx.constraintlayout.widget.ConstraintLayout>

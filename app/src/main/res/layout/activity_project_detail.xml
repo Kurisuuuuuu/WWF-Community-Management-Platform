@@ -21,6 +21,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wallpaper" />
+<<<<<<< HEAD
+>>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
+=======
 >>>>>>> 24d92a82768c21b3686abc18a8c36ce332a12e97
 
     <TextView
