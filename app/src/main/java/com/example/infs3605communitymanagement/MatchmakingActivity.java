@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,11 +30,13 @@ public class MatchmakingActivity extends AppCompatActivity {
     private UserDatabase mUserDb;
     SharedPreferences sharedPrefUser;
     public String user;
-    public String areaOfExpertise;
+    public String superPower;
     public String theme;
     public int projectsCanBeAssigned;
     public int challengesNumber;
     public User currentUser;
+    public String superPowerCategory;
+    public String themeCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +69,44 @@ public class MatchmakingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //get info from user db
+                mUserDb.userDao().deleteUsers(mUserDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
+                mUserDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
+                mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
+                mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
                 currentUser = mUserDb.userDao().getUserByID(user);
                 Log.d("current user", String.valueOf(currentUser));
-                areaOfExpertise = currentUser.getAreasOfExpertise();
-                Log.d("area of expertise",areaOfExpertise);
+                superPower = currentUser.getSuperPower();
+                if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){
+                    superPowerCategory = "technical / knowledge";
+                } else if (superPower.contains("Community building, engagement and participation")){
+                    superPowerCategory = "community";
+                } else if (superPower.contains("Financial sustinability, modelling and growth")){
+                    superPowerCategory = "Financial";
+                } else if(superPower.contains("Environmental impact [based on the impact challenge themes]")){
+                    superPowerCategory = "Environment";
+                }
+                Log.d("superpower",superPower);
+                Log.d("superpower",superPowerCategory);
                 theme = currentUser.getImpactTheme();
+                if (theme.contains("Conservation, Nature and Oceans")) {
+                    themeCategory = "Conservation, Nature and Oceans";
+                } else if (theme.contains("Climate and Energy")){
+                    themeCategory = "Climate and Energy";
+                } else if (theme.contains("Food and Agriculture")){
+                    themeCategory = "Food and Agriculture";
+                }
+                Log.d("theme",themeCategory);
                 projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
                 challengesNumber = currentUser.getChallengesNumber();
 
-                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(areaOfExpertise,theme);
-                mAdapter.setData(project);
+                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(superPowerCategory, themeCategory);
+                Log.d("project",project.toString());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.setData(project);
+                    }
+                });
             }
         });
 

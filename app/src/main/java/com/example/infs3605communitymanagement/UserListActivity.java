@@ -43,7 +43,7 @@ public class UserListActivity extends AppCompatActivity {
         mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
                 .fallbackToDestructiveMigration()
                 .build();
-/*
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
@@ -53,7 +53,7 @@ public class UserListActivity extends AppCompatActivity {
             }
         });
 
- */
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
