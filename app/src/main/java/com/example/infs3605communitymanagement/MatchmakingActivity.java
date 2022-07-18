@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,11 +30,12 @@ public class MatchmakingActivity extends AppCompatActivity {
     private UserDatabase mUserDb;
     SharedPreferences sharedPrefUser;
     public String user;
-    public String areaOfExpertise;
+    public String superPower;
     public String theme;
     public int projectsCanBeAssigned;
     public int challengesNumber;
     public User currentUser;
+    public String superPowerCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,14 +70,26 @@ public class MatchmakingActivity extends AppCompatActivity {
                 //get info from user db
                 currentUser = mUserDb.userDao().getUserByID(user);
                 Log.d("current user", String.valueOf(currentUser));
-                areaOfExpertise = currentUser.getAreasOfExpertise();
-                Log.d("area of expertise",areaOfExpertise);
+                superPower = currentUser.getSuperPower();
+                if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){
+                    superPowerCategory = "Technical / Knowledge";
+                } else if (superPower.contains("Community building, engagement and participation")){
+                    superPowerCategory = "Community";
+                }
+                Log.d("superpower",superPower);
+                Log.d("superpower",superPowerCategory);
                 theme = currentUser.getImpactTheme();
                 projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
                 challengesNumber = currentUser.getChallengesNumber();
 
-                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(areaOfExpertise,theme);
-                mAdapter.setData(project);
+                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators();
+                Log.d("project",project.toString());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.setData(project);
+                    }
+                });
             }
         });
 

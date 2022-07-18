@@ -25,11 +25,12 @@ public class User{
   private int commentsNumber;
   private int challengesNumber;
   private String password;
+  private String superPower;
 
 
   public User(String userID, String fullName, String userType, String bio, String areasOfExpertise,
               String preferredSDGs, String impactTheme, String lastLogin, String availability,
-              int projectsCanBeAssigned, int commentsNumber, int challengesNumber, String password) {
+              int projectsCanBeAssigned, int commentsNumber, int challengesNumber, String password, String superPower) {
     this.userID = userID;
     this.fullName = fullName;
     this.userType = userType;
@@ -43,6 +44,7 @@ public class User{
     this.commentsNumber = commentsNumber;
     this.challengesNumber = challengesNumber;
     this.password = password;
+    this.superPower = superPower;
   }
 
   //getters & setters
@@ -129,10 +131,16 @@ public class User{
     this.password = password;
   }
 
+  public String getSuperPower(){ return superPower;}
+
+  public void setSuperPower(String superPower){
+    this.superPower = superPower;
+  }
+
   //data
   public static ArrayList<User> getUsers() {
     ArrayList<User> users = new ArrayList<>();
-    users.add(new User("ID7","Anorah Test","Curator","Josephine Sample opens the line of communication between clients, customers, and businesses to get projects done. With over 20 years in both public and private sectors, Melanie has experience in management consultation, team building, professional development, strategic implementation, and company collaboration. Melanie has managed projects at TechPoint International, Cyberry, and Induster, where she was a finalist for the PMI® Project of the Year. Melanie holds an MBA from Dartmouth University and a current PMP® certification.", "Design thinking, Technology, User experience, Project management, Design", "Sustainable Cities And Communities, Life On Land, Life Below Water, Partnerships For The Goals, Climate Action, Industry Innovation And Infrastructure", "Climate and Energy, Conservation, Nature and Ocean","5 June 2022, 10 pm GMT","1-hour a week",1,0,0,"abc123"));
+    users.add(new User("ID7","Anorah Test","Curator","Josephine Sample opens the line of communication between clients, customers, and businesses to get projects done. With over 20 years in both public and private sectors, Melanie has experience in management consultation, team building, professional development, strategic implementation, and company collaboration. Melanie has managed projects at TechPoint International, Cyberry, and Induster, where she was a finalist for the PMI® Project of the Year. Melanie holds an MBA from Dartmouth University and a current PMP® certification.", "Design thinking, Technology, User experience, Project management, Design", "Sustainable Cities And Communities, Life On Land, Life Below Water, Partnerships For The Goals, Climate Action, Industry Innovation And Infrastructure", "Climate and Energy, Conservation, Nature and Ocean","5 June 2022, 10 pm GMT","1-hour a week",1,0,0,"abc123","[Environmental impact [based on impact challenge themes],Community building, engagement and participation]"));
     return users;
   }
 /*
