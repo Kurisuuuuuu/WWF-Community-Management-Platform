@@ -84,20 +84,22 @@ public class RegisterActivity extends AppCompatActivity {
         editor.commit();
         //load home page
         Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();
+        //WWF staff
         if (userType ==true){
             sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
             SharedPreferences.Editor editorUser = sharedPrefUser.edit();
             editorUser.putString("current user",name);
             editorUser.commit();
-            Intent intent = new Intent(RegisterActivity.this, ExperienceActivity.class);
+            Intent intent = new Intent(RegisterActivity.this, UserListActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            //Curators
         } else {
             sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
             SharedPreferences.Editor editorUser = sharedPrefUser.edit();
             editorUser.putString("current user",name);
             editorUser.commit();
-            Intent intent = new Intent(RegisterActivity.this, ExperienceActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
