@@ -18,10 +18,8 @@ public interface ProjectDao {
     @Query("SELECT * FROM project WHERE projectID == :projectID")
     Project getProjectByID(String projectID);
 
-    @Query("SELECT * FROM project WHERE curatorAssigned < 4")
-            // ANDsupportNeeded LIKE '%'+:superPower+'%'
-    // AND theme LIKE '%'+:theme+'%'"
-    List<Project> getProjectMatchCurators();
+    @Query("SELECT * FROM project WHERE curatorAssigned < 4 AND supportNeeded LIKE '%'||:superPower||'%' AND theme LIKE '%'||:theme||'%'")
+    List<Project> getProjectMatchCurators(String superPower, String theme);
 
     @Insert
     void insertProjects (Project... projects);
