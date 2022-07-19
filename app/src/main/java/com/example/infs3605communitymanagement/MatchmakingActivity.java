@@ -111,11 +111,18 @@ public class MatchmakingActivity extends AppCompatActivity {
                 challengesNumber = currentUser.getChallengesNumber();
 
                 ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(superPowerCategory, themeCategory);
+                ArrayList<Project> projectNew = new ArrayList<Project>();
                 Log.d("project",project.toString());
+                // display only 3 projects
+                for(int i=0;i<=2;i++){
+                    projectNew.add(project.get(i));
+                }
+                Log.d("projectNew",projectNew.toString());
+                List<Project> projectList = projectNew;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter.setData(project);
+                        mAdapter.setData(projectList);
                     }
                 });
             }
