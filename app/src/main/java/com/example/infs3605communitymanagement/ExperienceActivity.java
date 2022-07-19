@@ -52,6 +52,7 @@ public class ExperienceActivity extends AppCompatActivity {
         Spinner experienceSpinner = findViewById(R.id.experienceSpinner);
 
         String theme = themeSpinner.getSelectedItem().toString();
+        Log.d("theme", theme);
         String expertise = expertiseSpinner.getSelectedItem().toString();
         String experience = experienceSpinner.getSelectedItem().toString();
 

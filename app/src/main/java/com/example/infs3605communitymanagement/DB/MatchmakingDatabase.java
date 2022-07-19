@@ -7,7 +7,7 @@ import com.example.infs3605communitymanagement.Matchmaking;
 import com.example.infs3605communitymanagement.Project;
 import com.example.infs3605communitymanagement.User;
 
-@Database(entities = {Matchmaking.class, User.class, Project.class}, version = 2, exportSchema = false)
+@Database(entities = {Matchmaking.class}, version = 3, exportSchema = false)
 
 public abstract class MatchmakingDatabase extends RoomDatabase {
 

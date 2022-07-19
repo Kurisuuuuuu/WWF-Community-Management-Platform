@@ -29,12 +29,30 @@
         app:layout_constraintTop_toTopOf="@+id/ivProject" />
 
     <TextView
-        android:id="@+id/tvProjectSumary"
+        android:id="@+id/tvProjectTheme"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectTitle" />
+
+    <TextView
+        android:id="@+id/tvProjectSupportNeeded"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
+        app:layout_constraintTop_toBottomOf="@+id/tvProjectTheme" />
+
+    <TextView
+        android:id="@+id/tvProjectSumary"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
+        app:layout_constraintTop_toBottomOf="@+id/tvProjectSupportNeeded" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

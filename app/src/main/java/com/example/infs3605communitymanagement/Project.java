@@ -1,6 +1,7 @@
 package com.example.infs3605communitymanagement;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

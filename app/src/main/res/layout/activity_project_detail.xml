@@ -46,11 +46,11 @@
         android:layout_marginStart="130dp"
         android:layout_marginTop="1dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
-        app:layout_constraintTop_toTopOf="@+id/tvProjectTheme" />
+        app:layout_constraintStart_toStartOf="@+id/tvProjectDetailTheme"
+        app:layout_constraintTop_toTopOf="@+id/tvProjectDetailTheme" />
 
     <TextView
-        android:id="@+id/tvProjectTheme"
+        android:id="@+id/tvProjectDetailTheme"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -76,7 +76,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/areaofexperetise"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
+        app:layout_constraintStart_toStartOf="@+id/tvProjectDetailTheme"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectThemeText" />
 
     <TextView

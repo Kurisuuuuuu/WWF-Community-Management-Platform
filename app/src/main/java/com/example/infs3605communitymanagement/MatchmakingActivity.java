@@ -23,6 +23,7 @@ import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.Executors;
 
 public class MatchmakingActivity extends AppCompatActivity {
@@ -41,6 +42,8 @@ public class MatchmakingActivity extends AppCompatActivity {
     public String superPowerCategory;
     public String themeCategory;
     public static String username;
+    public String userID;
+    public int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,47 +87,81 @@ public class MatchmakingActivity extends AppCompatActivity {
                 //mUserDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
                 mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
                 mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
+                mMatchmakingDb.MatchmakingDao().insertMatchmaking(Matchmaking.getMatchmakings().toArray(new Matchmaking[0]));
                 currentUser = mUserDb.userDao().getUserByUsername(user);
                 Log.d("current user", String.valueOf(currentUser));
-                superPower = currentUser.getSuperPower();
-                if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){
-                    superPowerCategory = "technical / knowledge";
-                } else if (superPower.contains("Community building, engagement and participation")){
-                    superPowerCategory = "community";
-                } else if (superPower.contains("Financial sustinability, modelling and growth")){
-                    superPowerCategory = "Financial";
-                } else if(superPower.contains("Environmental impact [based on the impact challenge themes]")){
-                    superPowerCategory = "Environment";
-                }
-                Log.d("superpower",superPower);
-                Log.d("superpower",superPowerCategory);
-                theme = currentUser.getImpactTheme();
-                if (theme.contains("Conservation, Nature and Oceans")) {
-                    themeCategory = "Conservation, Nature and Oceans";
-                } else if (theme.contains("Climate and Energy")){
-                    themeCategory = "Climate and Energy";
-                } else if (theme.contains("Food and Agriculture")){
-                    themeCategory = "Food and Agriculture";
-                }
-                Log.d("theme",themeCategory);
-                projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
-                challengesNumber = currentUser.getChallengesNumber();
-
-                ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(superPowerCategory, themeCategory);
-                ArrayList<Project> projectNew = new ArrayList<Project>();
-                Log.d("project",project.toString());
-                // display only 3 projects
-                for(int i=0;i<=2;i++){
-                    projectNew.add(project.get(i));
-                }
-                Log.d("projectNew",projectNew.toString());
-                List<Project> projectList = projectNew;
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.setData(projectList);
+                userID = currentUser.getUserID();
+                Log.d("matchmaking", String.valueOf(mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()));
+                if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size() == 0){
+                    superPower = currentUser.getSuperPower();
+                    if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){
+                        superPowerCategory = "technical / knowledge";
+                    } else if (superPower.contains("Community building, engagement and participation")){
+                        superPowerCategory = "community";
+                    } else if (superPower.contains("Financial sustinability, modelling and growth")){
+                        superPowerCategory = "Financial";
+                    } else if(superPower.contains("Environmental impact [based on the impact challenge themes]")){
+                        superPowerCategory = "Environment";
                     }
-                });
+                    Log.d("superpower",superPower);
+                    Log.d("superpower",superPowerCategory);
+                    theme = currentUser.getImpactTheme();
+                    if (theme.contains("Conservation, Nature and Oceans")) {
+                        themeCategory = "Conservation, Nature and Oceans";
+                    } else if (theme.contains("Climate and Energy")){
+                        themeCategory = "Climate and Energy";
+                    } else if (theme.contains("Food and Agriculture")){
+                        themeCategory = "Food and Agriculture";
+                    }
+                    Log.d("theme",themeCategory);
+                    projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
+                    challengesNumber = currentUser.getChallengesNumber();
+
+                    ArrayList<Project> project = (ArrayList<Project>) mProjectDb.projectDao().getProjectMatchCurators(superPowerCategory, themeCategory);
+                    ArrayList<Project> projectNew = new ArrayList<Project>();
+                    Log.d("project",project.toString());
+                    // display only 3 projects
+                    if (project.size()>3){
+                        for(int i=0;i<=2;i++){
+                            projectNew.add(project.get(i));
+                        }
+                    } else {
+                        for (int i = 0; i <= project.size(); i++) {
+                            projectNew.add(project.get(i));
+                        }
+                    }
+                    Log.d("projectNew",projectNew.toString());
+                    List<Project> projectList = projectNew;
+                    Log.d("userid", userID);
+                    //set to matchmaking database
+                    for (int ii=0;ii<projectNew.size();ii++){
+                        Log.d("projectID", projectNew.get(ii).getProjectID());
+                        mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mAdapter.setData(projectList);
+                        }
+                    });
+                } else {
+                    ArrayList<Project> projectNew = new ArrayList<Project>();
+                    ArrayList<Matchmaking> matchmakingList = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID);
+                    ArrayList<String> matchmakeProjectList = new ArrayList<String>();
+                    for (int iii=0;iii<matchmakingList.size();iii++){
+                        matchmakeProjectList.add(matchmakingList.get(iii).getProjectID());
+                        Log.d("projectID", matchmakingList.get(iii).getProjectID());
+                        projectNew.add(mProjectDb.projectDao().getProjectByID(matchmakeProjectList.get(iii)));
+                    }
+                    List<Project> projectList = projectNew;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mAdapter.setData(projectList);
+                        }
+                    });
+                }
+
             }
         });
 

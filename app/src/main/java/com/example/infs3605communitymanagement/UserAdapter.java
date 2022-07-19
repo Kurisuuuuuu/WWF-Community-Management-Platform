@@ -80,8 +80,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         holder.mTitle.setText(user.getUsername());
         holder.mSummary.setText(user.getBio());
-        //holder.mTheme.setText(project.getTheme());
-        //holder.mSupportNeeded.setText(project.getSupportNeeded());
+        holder.mTheme.setText(user.getImpactTheme());
+        holder.mSupportNeeded.setText(user.getSuperPower());
         //Glide.with(holder.mImage.getContext())
         //        .load(user.)
         //        .into(holder.mImage);
@@ -112,8 +112,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             itemView.setOnClickListener(this);
             mTitle = itemView.findViewById(R.id.tvProjectTitle);
             mSummary = itemView.findViewById(R.id.tvProjectSumary);
-            //mTheme = itemView.findViewById(R.id.tvChangeMain);
-            //mSupportNeeded = itemView.findViewById(R.id.imageViewCoin);
+            mTheme = itemView.findViewById(R.id.tvProjectTheme);
+            mSupportNeeded = itemView.findViewById(R.id.tvProjectSupportNeeded);
             mImage = itemView.findViewById(R.id.ivProject);
 
         }

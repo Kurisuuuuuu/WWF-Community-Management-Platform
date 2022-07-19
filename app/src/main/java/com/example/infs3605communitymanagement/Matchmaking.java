@@ -8,16 +8,9 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
-@Entity(
-        foreignKeys = {
-                @ForeignKey(entity = User.class,parentColumns = "userID",
-                        childColumns = "userID",
-                        onDelete = ForeignKey.CASCADE),
-                @ForeignKey(entity = Project.class,parentColumns = "projectID",
-                        childColumns = "projectID",
-                        onDelete = ForeignKey.CASCADE)
-        }
-)
+import java.util.UUID;
+
+@Entity
 public class Matchmaking {
 
   @PrimaryKey
@@ -71,6 +64,7 @@ public class Matchmaking {
   //data
   public static ArrayList<Matchmaking> getMatchmakings() {
     ArrayList<Matchmaking> matchmakings = new ArrayList<>();
+    matchmakings.add(new Matchmaking(UUID.randomUUID().toString(),"faff373f-2014-41e1-b6b5-74a74339fe7e","ID10","Recommended"));
     return matchmakings;
   }
 /*

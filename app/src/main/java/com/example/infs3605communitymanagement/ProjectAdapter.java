@@ -89,8 +89,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
         holder.mTitle.setText(project.getProjectTitle());
         holder.mSummary.setText(project.getProjectSummary());
-        //holder.mTheme.setText(project.getTheme());
-        //holder.mSupportNeeded.setText(project.getSupportNeeded());
+        holder.mTheme.setText(project.getTheme());
+        holder.mSupportNeeded.setText(project.getSupportNeeded());
         Glide.with(holder.mImage.getContext())
                 .load(project.getImageUrl())
                 .into(holder.mImage);
@@ -121,8 +121,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             itemView.setOnClickListener(this);
             mTitle = itemView.findViewById(R.id.tvProjectTitle);
             mSummary = itemView.findViewById(R.id.tvProjectSumary);
-            //mTheme = itemView.findViewById(R.id.tvChangeMain);
-            //mSupportNeeded = itemView.findViewById(R.id.imageViewCoin);
+            mTheme = itemView.findViewById(R.id.tvProjectTheme);
+            mSupportNeeded = itemView.findViewById(R.id.tvProjectSupportNeeded);
             mImage = itemView.findViewById(R.id.ivProject);
 
         }
