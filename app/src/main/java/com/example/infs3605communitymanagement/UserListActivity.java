@@ -48,7 +48,7 @@ public class UserListActivity extends AppCompatActivity {
             @Override
             public void run() {
                 mDb.userDao().deleteUsers(mDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
-                mDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
+                mDb.userDao().insertUsers((User) mDb.userDao().getUsers());
 
             }
         });

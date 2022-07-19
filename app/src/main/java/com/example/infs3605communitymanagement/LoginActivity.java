@@ -106,17 +106,16 @@ public class LoginActivity extends AppCompatActivity {
     private void login(String name, String pwd) {
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         savedPassword=sharedPref.getString(name, "");
+        sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+        SharedPreferences.Editor editorUser = sharedPrefUser.edit();
         if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
-            sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
-            SharedPreferences.Editor editorUser = sharedPrefUser.edit();
             editorUser.putString("current user",name);
             editorUser.commit();
             startActivity(new Intent(this, UserListActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {
-            sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
-            SharedPreferences.Editor editorUser = sharedPrefUser.edit();
             editorUser.putString("current user",name);
+            Log.d("username", name);
             editorUser.commit();
             startActivity(new Intent(this, MainActivity.class));
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();

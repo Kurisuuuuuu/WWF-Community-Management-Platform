@@ -56,9 +56,9 @@ public class ExperienceActivity extends AppCompatActivity {
         String expertise = expertiseSpinner.getSelectedItem().toString();
         String experience = experienceSpinner.getSelectedItem().toString();
 
-        mDb = Room.databaseBuilder(this, UserDatabase.class, "users.db").createFromAsset("users.db").build();
+        mDb = Room.databaseBuilder(this, UserDatabase.class, "users").createFromAsset("users").build();
 
-        User newUser = new User("1", "null", userType, "null", "null", "null", "null", "null", 2,
+        User newUser = new User(username, "null", userType, "null", "null", "null", "null", "null", 2,
                 0, 0, password, expertise, industry, experience);
 
         Executors.newSingleThreadExecutor().execute(new Runnable() {
