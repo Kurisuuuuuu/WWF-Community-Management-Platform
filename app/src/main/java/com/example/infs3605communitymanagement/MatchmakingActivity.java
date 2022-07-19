@@ -12,10 +12,12 @@ import android.widget.SearchView;
 
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.example.infs3605communitymanagement.DB.MatchmakingDatabase;
 import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
@@ -28,6 +30,7 @@ public class MatchmakingActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ProjectDatabase mProjectDb;
     private UserDatabase mUserDb;
+    private MatchmakingDatabase mMatchmakingDb;
     SharedPreferences sharedPrefUser;
     public String user;
     public String superPower;
@@ -62,6 +65,9 @@ public class MatchmakingActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
         mUserDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+                .fallbackToDestructiveMigration()
+                .build();
+        mMatchmakingDb = Room.databaseBuilder(getApplicationContext(), MatchmakingDatabase.class, "matchmaking")
                 .fallbackToDestructiveMigration()
                 .build();
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Entity(
         foreignKeys = {
                 @ForeignKey(entity = User.class,parentColumns = "userID",
-                        childColumns = "UserID",
+                        childColumns = "userID",
                         onDelete = ForeignKey.CASCADE),
                 @ForeignKey(entity = Project.class,parentColumns = "projectID",
                         childColumns = "projectID",
@@ -23,14 +23,18 @@ public class Matchmaking {
   @PrimaryKey
   @NonNull
   private String matchmakeID;
+  @NonNull
   private String userID;
+  @NonNull
   private String projectID;
+  private String status;
 
 
-  public Matchmaking(String matchmakeID, String userID, String projectID) {
+  public Matchmaking(String matchmakeID, String userID, String projectID, String status) {
     this.matchmakeID = matchmakeID;
     this.userID = userID;
     this.projectID = projectID;
+    this.status = status;
   }
 
   //getters & setters
@@ -42,7 +46,7 @@ public class Matchmaking {
     this.userID = userID;
   }
 
-  public String getMatchmakeID(String matchmakeID) {
+  public String getMatchmakeID() {
     return matchmakeID;
   }
 
@@ -54,6 +58,14 @@ public class Matchmaking {
 
   public void setProjectID(String projectID) {
     this.projectID = projectID;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   //data
