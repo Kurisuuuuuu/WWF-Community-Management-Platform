@@ -25,12 +25,14 @@ public class Matchmaking {
   private String matchmakeID;
   private String userID;
   private String projectID;
+  private String status;
 
 
-  public Matchmaking(String matchmakeID, String userID, String projectID) {
+  public Matchmaking(String matchmakeID, String userID, String projectID, String status) {
     this.matchmakeID = matchmakeID;
     this.userID = userID;
     this.projectID = projectID;
+    this.status = status;
   }
 
   //getters & setters
@@ -54,6 +56,14 @@ public class Matchmaking {
 
   public void setProjectID(String projectID) {
     this.projectID = projectID;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   //data
