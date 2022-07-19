@@ -59,7 +59,7 @@ public class ExperienceActivity extends AppCompatActivity {
         mDb = Room.databaseBuilder(this, UserDatabase.class, "users.db").createFromAsset("users.db").build();
 
         User newUser = new User("1", "null", userType, "null", "null", "null", "null", "null", 2,
-                0, 0, username, password, expertise, industry, experience);
+                0, 0, password, expertise, industry, experience);
 
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override

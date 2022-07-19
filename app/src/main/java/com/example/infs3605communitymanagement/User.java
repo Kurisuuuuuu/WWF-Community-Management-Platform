@@ -23,7 +23,6 @@ public class User{
   private int projectsCanBeAssigned;
   private int commentsNumber;
   private int challengesNumber;
-  private String username;
   private String password;
   private String superPower;
   private String industry;
@@ -31,7 +30,7 @@ public class User{
 
 
   public User(String userID, String fullName, String userType, String bio, String preferredSDGs, String impactTheme, String lastLogin, String availability,
-              int projectsCanBeAssigned, int commentsNumber, int challengesNumber, String username, String password, String superPower, String industry, String experience) {
+              int projectsCanBeAssigned, int commentsNumber, int challengesNumber, String password, String superPower, String industry, String experience) {
     this.userID = userID;
     this.fullName = fullName;
     this.userType = userType;
@@ -43,7 +42,6 @@ public class User{
     this.projectsCanBeAssigned = projectsCanBeAssigned;
     this.commentsNumber = commentsNumber;
     this.challengesNumber = challengesNumber;
-    this.username = username;
     this.password = password;
     this.superPower = superPower;
     this.industry = industry;
@@ -133,14 +131,6 @@ public class User{
     this.superPower = superPower;
   }
 
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
   public String getIndustry() {
     return industry;
   }
@@ -158,11 +148,11 @@ public class User{
   }
 
   //data
-  /*public static ArrayList<User> getUsers() {
+  public static ArrayList<User> getUsers() {
     ArrayList<User> users = new ArrayList<>();
-    users.add(new User("ID7","Anorah Test","Curator","Josephine Sample opens the line of communication between clients, customers, and businesses to get projects done. With over 20 years in both public and private sectors, Melanie has experience in management consultation, team building, professional development, strategic implementation, and company collaboration. Melanie has managed projects at TechPoint International, Cyberry, and Induster, where she was a finalist for the PMI® Project of the Year. Melanie holds an MBA from Dartmouth University and a current PMP® certification.", "Design thinking, Technology, User experience, Project management, Design", "Sustainable Cities And Communities, Life On Land, Life Below Water, Partnerships For The Goals, Climate Action, Industry Innovation And Infrastructure", "Climate and Energy, Conservation, Nature and Ocean","5 June 2022, 10 pm GMT","1-hour a week",1,0,0,"abc123","[Environmental impact [based on impact challenge themes],Community building, engagement and participation]"));
+    users.add(new User("ID7","Anorah Test","Curator","Josephine Sample opens the line of communication between clients, customers, and businesses to get projects done. With over 20 years in both public and private sectors, Melanie has experience in management consultation, team building, professional development, strategic implementation, and company collaboration. Melanie has managed projects at TechPoint International, Cyberry, and Induster, where she was a finalist for the PMI® Project of the Year. Melanie holds an MBA from Dartmouth University and a current PMP® certification.", "Sustainable Cities And Communities, Life On Land, Life Below Water, Partnerships For The Goals, Climate Action, Industry Innovation And Infrastructure", "Climate and Energy, Conservation, Nature and Ocean","5 June 2022, 10 pm GMT","1-hour a week",1,0,0,"abc123","[Environmental impact [based on impact challenge themes],Community building, engagement and participation]","Professional and business services","0-1 years"));
     return users;
-  }*/
+  }
 /*
   //return destination
   public static Destination findDestination(String name) {
