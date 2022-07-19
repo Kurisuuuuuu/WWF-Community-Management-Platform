@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.infs3605communitymanagement.User;
 
-@Database(entities = {User.class}, version = 4, exportSchema = false)
+@Database(entities = {User.class}, version = 5, exportSchema = false)
 
 public abstract class UserDatabase extends RoomDatabase {
 

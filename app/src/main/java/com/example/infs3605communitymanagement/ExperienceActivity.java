@@ -2,25 +2,24 @@ package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import com.example.infs3605communitymanagement.DB.UserDao;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.Executors;
 
 public class ExperienceActivity extends AppCompatActivity {
 
     private UserDatabase mDb;
+    private User newUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,28 +47,32 @@ public class ExperienceActivity extends AppCompatActivity {
         String password = intent.getStringExtra("INTENT_PASSWORD");
         String userType = intent.getStringExtra("INTENT_USERTYPE");
 
-        Spinner industrySpinner = findViewById(R.id.industrySpinner);
+        Spinner themeSpinner = findViewById(R.id.themeSpinner);
         Spinner expertiseSpinner = findViewById(R.id.expertiseSpinner);
         Spinner experienceSpinner = findViewById(R.id.experienceSpinner);
 
-        String industry = industrySpinner.getSelectedItem().toString();
+        String theme = themeSpinner.getSelectedItem().toString();
         String expertise = expertiseSpinner.getSelectedItem().toString();
         String experience = experienceSpinner.getSelectedItem().toString();
 
-        mDb = Room.databaseBuilder(this, UserDatabase.class, "users").createFromAsset("users").build();
+        mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+                .fallbackToDestructiveMigration()
+                .build();
 
-        User newUser = new User(username, "null", userType, "null", "null", "null", "null", "null", 2,
-                0, 0, password, expertise, industry, experience);
-
+        newUser = new User(UUID.randomUUID().toString(),username, "test", userType, "null", "null", theme, "null", "null", 2,
+                0, 0, password, expertise, "null", experience);
+        ArrayList<User> users = new ArrayList<>();
+        users.add(newUser);
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-
-                mDb.userDao().insertUsers(newUser);
+                mDb.userDao().insertUsers(users.toArray(new User[0]));
+                Log.d("register",username);
             }
         });
 
         Intent mainActivityIntent = new Intent(ExperienceActivity.this, MainActivity.class);
+        mainActivityIntent.putExtra(MainActivity.username, username);
         startActivity(mainActivityIntent);
     }
 }

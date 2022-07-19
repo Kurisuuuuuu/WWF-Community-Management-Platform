@@ -40,6 +40,7 @@ public class MatchmakingActivity extends AppCompatActivity {
     public User currentUser;
     public String superPowerCategory;
     public String themeCategory;
+    public static String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +58,12 @@ public class MatchmakingActivity extends AppCompatActivity {
         };
         mAdapter = new ProjectAdapter(new ArrayList<Project>(), listener);
 
-        sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
-        user=sharedPrefUser.getString("current user", "");
+        //Get Intent and get message
+        Intent newIntent = getIntent();
+        user= newIntent.getStringExtra(username);
+
+        //sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+        //user=sharedPrefUser.getString("current user", "");
         Log.d("user", user);
         //implementation of RoomDatabase
         mProjectDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
@@ -75,11 +80,11 @@ public class MatchmakingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //get info from user db
-                mUserDb.userDao().deleteUsers(mUserDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
-                mUserDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
+                //mUserDb.userDao().deleteUsers(mUserDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
+                //mUserDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
                 mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
                 mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
-                currentUser = mUserDb.userDao().getUserByID(user);
+                currentUser = mUserDb.userDao().getUserByUsername(user);
                 Log.d("current user", String.valueOf(currentUser));
                 superPower = currentUser.getSuperPower();
                 if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){

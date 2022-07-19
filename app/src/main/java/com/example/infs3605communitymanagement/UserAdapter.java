@@ -78,7 +78,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(UserViewHolder holder, int position) {
         User user = mUserFiltered.get(position);
 
-        holder.mTitle.setText(user.getFullName());
+        holder.mTitle.setText(user.getUsername());
         holder.mSummary.setText(user.getBio());
         //holder.mTheme.setText(project.getTheme());
         //holder.mSupportNeeded.setText(project.getSupportNeeded());

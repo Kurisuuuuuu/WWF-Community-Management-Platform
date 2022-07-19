@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         initView();
     }
 
+
     //set screen
     private void initView() {
         Button btn_login = findViewById(R.id.btn_login);
@@ -111,13 +112,16 @@ public class LoginActivity extends AppCompatActivity {
         if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
             editorUser.putString("current user",name);
             editorUser.commit();
-            startActivity(new Intent(this, UserListActivity.class));
+            Intent intent = new Intent(this, UserListActivity.class);
+            startActivity(intent);
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {
             editorUser.putString("current user",name);
             Log.d("username", name);
             editorUser.commit();
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(MainActivity.username, name);
+            startActivity(intent);
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else{
             Log.d("savedPassword",savedPassword);

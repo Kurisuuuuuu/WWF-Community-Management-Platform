@@ -22,39 +22,20 @@
     <string name="foryou">For You</string>
     <string name="projecttheme">Project Theme: </string>
     <string name="areaofexperetise">Area of expertise required: </string>
-    <string name="enterindustry">Please enter your industry</string>
+    <string name="entertheme">Please enter your theme</string>
 
-    <string-array name="industries_array">
-        <item>Manufacturing</item>
-        <item>Finance and insurance</item>
-        <item>Professional and business services</item>
-        <item>Retail and wholesale</item>
-        <item>Healthcare</item>
-        <item>Transportation</item>
-        <item>Education</item>
-        <item>Media</item>
+    <string-array name="theme_array">
+        <item>Conservation, Nature and Oceans</item>
+        <item>Climate and Energy</item>
+        <item>Food and Agriculture</item>
     </string-array>
 
     <string-array name="expertise_array">
-        <item>Business analytics</item>
-        <item>Consulting</item>
-        <item>Database administration</item>
-        <item>Design</item>
-        <item>Engineering</item>
-        <item>Food preparation</item>
-        <item>Forklift operation</item>
-        <item>Fundraising</item>
-        <item>Horticulture</item>
-        <item>Information technology</item>
-        <item>Journalism</item>
-        <item>Management</item>
-        <item>Media production</item>
-        <item>Nursing</item>
-        <item>Office administration</item>
-        <item>Programming</item>
-        <item>Software development</item>
-        <item>Truck driving</item>
-        <item>UI/UX design</item>
+        <item>Technical skills and entrepreneurial mindset</item>
+        <item>Indigenous Knowledge and leadership</item>
+        <item>Community building, engagement and participation</item>
+        <item>Financial sustinability, modelling and growth</item>
+        <item>Environmental impact [based on the impact challenge themes]</item>
     </string-array>
 
     <string-array name="experience_array">
