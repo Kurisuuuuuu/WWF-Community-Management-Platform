@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
         if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
             editorUser.putString("current user",name);
             editorUser.commit();
-            Intent intent = new Intent(this, UserListActivity.class);
+            Intent intent = new Intent(this, WWFMainActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else if (savedPassword.equals(pwd)) {

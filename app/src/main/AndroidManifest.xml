@@ -30,6 +30,12 @@
             android:name=".ProjectDetailActivity"
             android:exported="false"/>
         <activity
+            android:name=".MatchmakingListActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".WWFMainActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="false"/>
         <activity
