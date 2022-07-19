@@ -40,11 +40,11 @@ public class ExperienceActivity extends AppCompatActivity {
         Spinner expertiseSpinner = findViewById(R.id.expertiseSpinner);
         Spinner experienceSpinner = findViewById(R.id.experienceSpinner);
 
-        String industryText = industrySpinner.getSelectedItem().toString();
-        String expertiseText = expertiseSpinner.getSelectedItem().toString();
-        String experienceText = experienceSpinner.getSelectedItem().toString();
+        String industry = industrySpinner.getSelectedItem().toString();
+        String expertise = expertiseSpinner.getSelectedItem().toString();
+        String experience = experienceSpinner.getSelectedItem().toString();
 
-        System.out.println(industryText + ", " + expertiseText + ", " + experienceText);
+
 
         Intent intent = new Intent(ExperienceActivity.this, MainActivity.class);
         startActivity(intent);
