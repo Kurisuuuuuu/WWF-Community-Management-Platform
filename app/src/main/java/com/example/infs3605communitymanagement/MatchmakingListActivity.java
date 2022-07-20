@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.infs3605communitymanagement.DB.MatchmakingDatabase;
+import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
@@ -21,8 +22,9 @@ import java.util.concurrent.Executors;
 public class MatchmakingListActivity extends AppCompatActivity {
     private MatchmakingAdapter mAdapter;
     private RecyclerView mRecyclerView;
-    private MatchmakingDatabase mDb;
-    public ArrayList<Matchmaking> matchmaking;
+    private MatchmakingDatabase mMatchmakingDb;
+    private ProjectDatabase mProjectDb;
+    private UserDatabase mUserDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,31 +40,33 @@ public class MatchmakingListActivity extends AppCompatActivity {
                 //launchDetailActivity(projectID);
             }
         };
-        mAdapter = new MatchmakingAdapter(new ArrayList<Matchmaking>(), listener);
+        mAdapter = new MatchmakingAdapter(new ArrayList<Matchmaking>(), new ArrayList<Project>(),new ArrayList<User>(),listener);
 
         //implementation of RoomDatabase
-        mDb = Room.databaseBuilder(getApplicationContext(), MatchmakingDatabase.class, "Matchmaking")
+        mMatchmakingDb = Room.databaseBuilder(getApplicationContext(), MatchmakingDatabase.class, "matchmaking")
                 .fallbackToDestructiveMigration()
                 .build();
-/*
-        Executors.newSingleThreadExecutor().execute(new Runnable() {
-            @Override
-            public void run() {
-                mDb.userDao().deleteUsers(mDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
-                mDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
-
-            }
-        });
-*/
+        mProjectDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
+                .fallbackToDestructiveMigration()
+                .build();
+        mUserDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+                .fallbackToDestructiveMigration()
+                .build();
 
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                matchmaking = (ArrayList<Matchmaking>) mDb.MatchmakingDao().getMatchmakings();
+                ArrayList<Matchmaking> matchmaking = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakings();
+                ArrayList<Project> projectList = new ArrayList<Project>();
+                ArrayList<User> userList = new ArrayList<User>();
+                for (int i=0;i<matchmaking.size();i++){
+                    projectList.add(mProjectDb.projectDao().getProjectByID(matchmaking.get(i).getProjectID()));
+                    userList.add(mUserDb.userDao().getUserByUserID(matchmaking.get(i).getUserID()));
+                }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter.setData(matchmaking);
+                        mAdapter.setData(matchmaking, projectList,userList);
                         if (matchmaking.size()==0){
                             Log.d("user", "null");
                         } else {

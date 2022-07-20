@@ -19,13 +19,21 @@ import java.util.List;
 public class MatchmakingAdapter extends RecyclerView.Adapter<MatchmakingAdapter.MatchmakingListViewHolder> implements Filterable {
     public static MatchmakingAdapter setData;
     private List<Matchmaking> mMatchmaking;
+    private List<Project> mProject;
+    private List<Project> mProjectFiltered;
+    private List<User> mUser;
+    private List<User> mUserFiltered;
     private RecyclerviewClickListener mListener;
     private List<Matchmaking> mMatchmakingFiltered;
 
-    public MatchmakingAdapter(List<Matchmaking> matchmaking, RecyclerviewClickListener listener){
+    public MatchmakingAdapter(List<Matchmaking> matchmaking, List<Project> project, List<User> user,RecyclerviewClickListener listener){
         mMatchmaking = matchmaking;
         mListener = listener;
         mMatchmakingFiltered = matchmaking;
+        mProject = project;
+        mProjectFiltered = project;
+        mUserFiltered = user;
+        mUser = user;
     }
 
     @Override
@@ -93,7 +101,7 @@ public class MatchmakingAdapter extends RecyclerView.Adapter<MatchmakingAdapter.
         //String replacedSpaceText = replaceText.replace(' ', '-');
         //String replacedDotText = replacedSpaceText.replace('.', '-');
     }
-    public void setData(ArrayList<Matchmaking> matchmaking){
+    public void setData(ArrayList<Matchmaking> matchmaking, ArrayList<Project> projectList, ArrayList<User> userList){
         mMatchmakingFiltered.clear();
         mMatchmakingFiltered.addAll(matchmaking);
         notifyDataSetChanged();
