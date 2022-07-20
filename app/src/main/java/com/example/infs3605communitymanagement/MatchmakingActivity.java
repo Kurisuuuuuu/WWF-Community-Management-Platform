@@ -92,7 +92,7 @@ public class MatchmakingActivity extends AppCompatActivity {
                 Log.d("current user", String.valueOf(currentUser));
                 userID = currentUser.getUserID();
                 Log.d("matchmaking", String.valueOf(mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()));
-                if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size() == 0){
+                if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size() < currentUser.getProjectsCanBeAssigned()){
                     superPower = currentUser.getSuperPower();
                     if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){
                         superPowerCategory = "technical / knowledge";
@@ -121,12 +121,17 @@ public class MatchmakingActivity extends AppCompatActivity {
                     ArrayList<Project> projectNew = new ArrayList<Project>();
                     Log.d("project",project.toString());
                     // display only 3 projects
-                    if (project.size()>3){
-                        for(int i=0;i<=2;i++){
+                    int projectsCanBeAssignedThisRound = 3;
+                    if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()>0)
+                        projectsCanBeAssignedThisRound = projectsCanBeAssignedThisRound-mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size();
+                    if (project.size()>projectsCanBeAssignedThisRound){
+                        for(int i=0;i<projectsCanBeAssignedThisRound-1;i++){
                             projectNew.add(project.get(i));
                         }
+                    } else if(project.size()==0){
+                        Log.d("project", "Does not match");
                     } else {
-                        for (int i = 0; i <= project.size(); i++) {
+                        for (int i = 0; i < project.size(); i++) {
                             projectNew.add(project.get(i));
                         }
                     }
@@ -137,6 +142,11 @@ public class MatchmakingActivity extends AppCompatActivity {
                     for (int ii=0;ii<projectNew.size();ii++){
                         Log.d("projectID", projectNew.get(ii).getProjectID());
                         mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
+                        Project projectData = projectNew.get(ii);
+                        Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
+                        mProjectDb.projectDao().updateProjects(updateProject);
+                        User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
+                        mUserDb.userDao().updateUsers(updateUser);
                     }
                     runOnUiThread(new Runnable() {
                         @Override
