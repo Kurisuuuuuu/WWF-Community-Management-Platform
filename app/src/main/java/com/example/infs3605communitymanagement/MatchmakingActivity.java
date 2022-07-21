@@ -44,6 +44,8 @@ public class MatchmakingActivity extends AppCompatActivity {
     public static String username;
     public String userID;
     public int count=0;
+    public String id1 = " ";
+    public String id2 = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,11 +97,13 @@ public class MatchmakingActivity extends AppCompatActivity {
                 Log.d("matchmaking", String.valueOf(mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()));
                 if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size() < currentUser.getProjectsCanBeAssigned()){
                     superPower = currentUser.getSuperPower();
-                    if (superPower.contains("Technical skills and entrepreneurial mindset")||superPower.contains("Indigenous Knowledge and leadership") ){
-                        superPowerCategory = "technical / knowledge";
+                    if (superPower.contains("Technical skills and entrepreneurial mindset") ){
+                        superPowerCategory = "technical";
+                    } else if (superPower.contains("Indigenous Knowledge and leadership")){
+                        superPowerCategory = "knowledge";
                     } else if (superPower.contains("Community building, engagement and participation")){
                         superPowerCategory = "community";
-                    } else if (superPower.contains("Financial sustinability, modelling and growth")){
+                    } else if (superPower.contains("Financial sustainability, modelling and growth")){
                         superPowerCategory = "Financial";
                     } else if(superPower.contains("Environmental impact [based on the impact challenge themes]")){
                         superPowerCategory = "Environment";
@@ -129,40 +133,73 @@ public class MatchmakingActivity extends AppCompatActivity {
                     Log.d("project",project.toString());
                     // display only 3 projects
                     int projectsCanBeAssignedThisRound = 3;
-                    if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()>0)
+                    if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()>0){
                         projectsCanBeAssignedThisRound = projectsCanBeAssignedThisRound-mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size();
+                        ArrayList<Matchmaking> matchmakingList = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID);
+                        switch (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()){
+                            case 1:
+                                id1 = matchmakingList.get(0).getProjectID();
+                                id2 = null;
+                                Log.d("switch", "1");
+                                break;
+                            case 2:
+                                id1 = matchmakingList.get(0).getProjectID();
+                                id2 = matchmakingList.get(1).getProjectID();
+                                Log.d("switch", "2");
+                                break;
+                        }
+                    }
                     if (project.size()>projectsCanBeAssignedThisRound){
-                        for(int i=0;i<projectsCanBeAssignedThisRound-1;i++){
-                            projectNew.add(project.get(i));
+                        for(int i=0;i<projectsCanBeAssignedThisRound;i++){
+                            if (id1 != project.get(i).getProjectID() && id2 != project.get(i).getProjectID()){
+                                projectNew.add(project.get(i));
+                            }
                         }
                     } else if(project.size()==0){
                         Log.d("project", "Does not match");
                     } else {
                         for (int i = 0; i < project.size(); i++) {
-                            projectNew.add(project.get(i));
+                            if (id1 != project.get(i).getProjectID() && id2 != project.get(i).getProjectID()){
+                                projectNew.add(project.get(i));
+                            }
                         }
                     }
                     Log.d("projectNew",projectNew.toString());
-                    List<Project> projectList = projectNew;
-                    Log.d("userid", userID);
-                    //set to matchmaking database
-                    for (int ii=0;ii<projectNew.size();ii++){
-                        Log.d("projectID", projectNew.get(ii).getProjectID());
-                        mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
-                        Project projectData = projectNew.get(ii);
-                        Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
-                        mProjectDb.projectDao().updateProjects(updateProject);
-                        User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
-                        mUserDb.userDao().updateUsers(updateUser);
-                    }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAdapter.setData(projectList);
+
+                    if (projectNew != null){
+                        List<Project> projectList = projectNew;
+                        Log.d("userid", userID);
+                        //set to matchmaking database
+                        for (int ii=0;ii<projectNew.size();ii++){
+                            Log.d("projectID", projectNew.get(ii).getProjectID());
+                            if (mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID).size()>0){
+                                Log.d("id1",id1);
+                                if(id2 != null) {
+                                    Log.d("id2", id2);
+                                }
+                            }
+                            if (projectNew.get(ii).getProjectID().contains(id1) || projectNew.get(ii).getProjectID().contains(id2)){
+
+                            } else {
+                                mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
+                                Project projectData = projectNew.get(ii);
+                                Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
+                                mProjectDb.projectDao().updateProjects(updateProject);
+                                User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
+                                mUserDb.userDao().updateUsers(updateUser);
+                            }
                         }
-                    });
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mAdapter.setData(projectList);
+                            }
+                        });
+
+                    }
                 } else {
                     ArrayList<Project> projectNew = new ArrayList<Project>();
+                    projectNew.clear();
                     ArrayList<Matchmaking> matchmakingList = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID);
                     ArrayList<String> matchmakeProjectList = new ArrayList<String>();
                     for (int iii=0;iii<matchmakingList.size();iii++){
@@ -181,7 +218,6 @@ public class MatchmakingActivity extends AppCompatActivity {
 
             }
         });
-
         mRecyclerView.setAdapter(mAdapter);
     }
     //search & sort

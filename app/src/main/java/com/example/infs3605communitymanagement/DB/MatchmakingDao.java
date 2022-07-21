@@ -16,10 +16,10 @@ public interface MatchmakingDao {
 
     @Query("SELECT * FROM matchmaking")
     List<Matchmaking> getMatchmakings();
-/*
-    @Query("SELECT * FROM user WHERE challengesNumber < projectsCanBeAssigned")
-    User getUsersCanBeAssigned();
-*/
+
+    @Query("SELECT * FROM matchmaking WHERE userID == :userID AND projectID == :projectID")
+    Matchmaking getMatchmakingByIDs(String userID, String projectID);
+
     @Query("SELECT * FROM matchmaking WHERE userID == :userID")
     List<Matchmaking> getMatchmakingByID(String userID);
 

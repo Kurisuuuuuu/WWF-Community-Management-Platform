@@ -60,7 +60,7 @@ public class ExperienceActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
-        newUser = new User(UUID.randomUUID().toString(),username, "test", userType, "null", "null", theme, "null", "null", 2,
+        newUser = new User(UUID.randomUUID().toString(),username, "test", userType, "null", "null", theme, "null", "null", 3,
                 0, 0, password, expertise, "null", experience);
         ArrayList<User> users = new ArrayList<>();
         users.add(newUser);

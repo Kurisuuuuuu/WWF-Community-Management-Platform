@@ -23,6 +23,7 @@
     <string name="projecttheme">Project Theme: </string>
     <string name="areaofexperetise">Area of expertise required: </string>
     <string name="entertheme">Please enter your theme</string>
+    <string name="apply">Apply Now</string>
 
     <string-array name="theme_array">
         <item>Conservation, Nature and Oceans</item>
