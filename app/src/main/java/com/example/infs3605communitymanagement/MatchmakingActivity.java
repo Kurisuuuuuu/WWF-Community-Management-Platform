@@ -85,9 +85,10 @@ public class MatchmakingActivity extends AppCompatActivity {
                 //get info from user db
                 //mUserDb.userDao().deleteUsers(mUserDb.userDao().getUsers().toArray(new User[0])); //Project Database 1 to 1 relationship
                 //mUserDb.userDao().insertUsers(User.getUsers().toArray(new User[0]));
-                mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
-                mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
-                mMatchmakingDb.MatchmakingDao().insertMatchmaking(Matchmaking.getMatchmakings().toArray(new Matchmaking[0]));
+                //mProjectDb.projectDao().deleteProjects(mProjectDb.projectDao().getProjects().toArray(new Project[0])); //Project Database 1 to 1 relationship
+                //mProjectDb.projectDao().insertProjects(Project.getProjects().toArray(new Project[0]));
+                //mMatchmakingDb.MatchmakingDao().deleteMatchmaking(mMatchmakingDb.MatchmakingDao().getMatchmakings().toArray(new Matchmaking[0])); //Project Database 1 to 1 relationship
+                //mMatchmakingDb.MatchmakingDao().insertMatchmaking(Matchmaking.getMatchmakings().toArray(new Matchmaking[0]));
                 currentUser = mUserDb.userDao().getUserByUsername(user);
                 Log.d("current user", String.valueOf(currentUser));
                 userID = currentUser.getUserID();
@@ -110,9 +111,15 @@ public class MatchmakingActivity extends AppCompatActivity {
                         themeCategory = "Conservation, Nature and Oceans";
                     } else if (theme.contains("Climate and Energy")){
                         themeCategory = "Climate and Energy";
+                    } else if (theme.contains("Wealth sustainability")){
+                        themeCategory = "Wealth sustainability";
                     } else if (theme.contains("Food and Agriculture")){
-                        themeCategory = "Food and Agriculture";
-                    }
+                    themeCategory = "Food and Agriculture";
+                    } else if (theme.contains("Pollution reduction")){
+                        themeCategory = "Pollution reduction";
+                    } else if (theme.contains("Sustainable development")){
+                        themeCategory = "Sustainable development";
+                }
                     Log.d("theme",themeCategory);
                     projectsCanBeAssigned = currentUser.getProjectsCanBeAssigned();
                     challengesNumber = currentUser.getChallengesNumber();

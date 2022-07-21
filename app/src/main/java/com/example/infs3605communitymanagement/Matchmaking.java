@@ -64,7 +64,7 @@ public class Matchmaking {
   //data
   public static ArrayList<Matchmaking> getMatchmakings() {
     ArrayList<Matchmaking> matchmakings = new ArrayList<>();
-    matchmakings.add(new Matchmaking(UUID.randomUUID().toString(),"faff373f-2014-41e1-b6b5-74a74339fe7e","ID10","Recommended"));
+    //matchmakings.add(new Matchmaking(UUID.randomUUID().toString(),"faff373f-2014-41e1-b6b5-74a74339fe7e","ID10","Recommended"));
     return matchmakings;
   }
 /*
