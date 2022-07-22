@@ -49,6 +49,7 @@ public class ExperienceActivity extends AppCompatActivity {
         String username = intent.getStringExtra("INTENT_USERNAME");
         String password = intent.getStringExtra("INTENT_PASSWORD");
         String userType = intent.getStringExtra("INTENT_USERTYPE");
+        String fullName = intent.getStringExtra("INTENT_FULLNAME");
 
         Spinner themeSpinner = findViewById(R.id.themeSpinner);
         Spinner expertiseSpinner = findViewById(R.id.expertiseSpinner);
@@ -63,7 +64,7 @@ public class ExperienceActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
-        newUser = new User(UUID.randomUUID().toString(),username, "test", userType, "null", "null", theme, "null", "null", 3,
+        newUser = new User(UUID.randomUUID().toString(),username, fullName, userType, "null", "null", theme, "null", "null", 3,
                 0, 0, password, expertise, "null", experience);
         ArrayList<User> users = new ArrayList<>();
         users.add(newUser);
