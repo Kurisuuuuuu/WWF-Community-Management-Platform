@@ -19,6 +19,7 @@ import com.example.infs3605communitymanagement.DB.ProjectDatabase;
 import com.example.infs3605communitymanagement.DB.UserDatabase;
 
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.concurrent.Executors;
 
 public class ProjectDetailActivity extends AppCompatActivity {
@@ -148,6 +149,15 @@ public class ProjectDetailActivity extends AppCompatActivity {
                                 });
                             } else {
                                 Log.d ("Status","Failed");
+                                Matchmaking newRecord = new Matchmaking(UUID.randomUUID().toString(), userID, project1.getProjectID(), "Applied");
+                                mMatchmakingDb.MatchmakingDao().insertMatchmaking(newRecord);
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        btnApply.setText("Applied");
+                                        btnApply.setClickable(false);
+                                    }
+                                });
                             }
                         }
 
