@@ -3,6 +3,7 @@ package com.example.infs3605communitymanagement;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
 import com.example.infs3605communitymanagement.DB.UserDatabase;
@@ -35,6 +37,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+        getSupportActionBar().hide();
+        //getSupportActionBar().setTitle("WWF Community Management");
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
+        //getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
         // no dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         initView();
@@ -43,10 +49,13 @@ public class LoginActivity extends AppCompatActivity {
 
     //set screen
     private void initView() {
+
         Button btn_login = findViewById(R.id.btn_login);
+        Button signInWithGoogle = findViewById(R.id.signInWithGoogle);
         tvReset = findViewById(R.id.tv_reset);
         edtName = findViewById(R.id.etAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +112,14 @@ public class LoginActivity extends AppCompatActivity {
                         .show();
             }
         });
+        //Login with Google
+        signInWithGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(LoginActivity.this,"This feature will be implemented soon, stay tuned for updates!",Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     //login and error messages
