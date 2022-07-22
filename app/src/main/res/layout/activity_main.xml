@@ -7,11 +7,11 @@
 
     <ImageButton
         android:id="@+id/iBtnAllChallenges"
-        android:layout_width="480dp"
-        android:layout_height="278dp"
+        android:layout_width="357dp"
+        android:layout_height="226dp"
+        android:layout_marginTop="28dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/landscape"
@@ -32,8 +32,9 @@
 
     <ImageButton
         android:id="@+id/iBtnForYou"
-        android:layout_width="480dp"
-        android:layout_height="280dp"
+        android:layout_width="369dp"
+        android:layout_height="224dp"
+        android:layout_marginTop="52dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
