@@ -38,6 +38,8 @@ public class UserProfileActivity extends AppCompatActivity {
     Spinner themeSpinner;
     Spinner expertiseSpinner;
     EditText password;
+    SharedPreferences sharedPref;
+    public String savedLogin;
 
 
     @Override
@@ -117,6 +119,11 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
         Toast.makeText(UserProfileActivity.this, "User details updated", Toast.LENGTH_SHORT).show();
+        sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.remove(oldUser.getUsername());
+        editor.putString(username.getText().toString(),password.getText().toString());
+        editor.commit();
     }
     //Back button
     @Override

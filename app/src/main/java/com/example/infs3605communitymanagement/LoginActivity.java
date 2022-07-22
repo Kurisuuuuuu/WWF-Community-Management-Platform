@@ -15,7 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.room.Room;
 
+import com.example.infs3605communitymanagement.DB.UserDatabase;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class LoginActivity extends AppCompatActivity {
@@ -124,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
         } else{
-            Log.d("savedPassword",savedPassword);
+            Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_LONG).show();
         }
     }
 }
