@@ -1,6 +1,7 @@
 package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,8 @@ public class ExperienceActivity extends AppCompatActivity {
 
     private UserDatabase mDb;
     private User newUser;
+    SharedPreferences sharedPrefUser;
+    public String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,10 @@ public class ExperienceActivity extends AppCompatActivity {
                 0, 0, password, expertise, "null", experience);
         ArrayList<User> users = new ArrayList<>();
         users.add(newUser);
+        sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+        SharedPreferences.Editor editorUser = sharedPrefUser.edit();
+        editorUser.putString("current user",username);
+        editorUser.commit();
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {

@@ -33,6 +33,7 @@ public class ProjectDetailActivity extends AppCompatActivity {
     private UserDatabase mUserDb;
     public User currentUser;
     public String userID;
+    public Matchmaking checkCurrentMatchmaking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +46,8 @@ public class ProjectDetailActivity extends AppCompatActivity {
         output = newIntent.getStringExtra(projectID);
         Log.d("Type", output);
 
-        //Get Intent and get message
-        Intent intent = getIntent();
-        user= intent.getStringExtra(username);
+        sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+        user=sharedPrefUser.getString("current user", "");
 
         mDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
                 .build();
@@ -57,6 +57,7 @@ public class ProjectDetailActivity extends AppCompatActivity {
         mUserDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
                 .fallbackToDestructiveMigration()
                 .build();
+        Button btnApply = findViewById(R.id.btnApply);
 
         if (newIntent != null){
             Log.d("Type", output);
@@ -87,29 +88,69 @@ public class ProjectDetailActivity extends AppCompatActivity {
                 }
             });
         }
-        Button btnApply = findViewById(R.id.btnApply);
-        btnApply.setOnClickListener(new View.OnClickListener(){
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
-            public void onClick(View view) {
+            public void run() {
+                Project project = mDb.projectDao().getProjectByID(output);
+                project1 = project;
+                //Apply status
                 currentUser = mUserDb.userDao().getUserByUsername(user);
                 Log.d("current user", String.valueOf(currentUser));
                 userID = currentUser.getUserID();
-                Executors.newSingleThreadExecutor().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        Project project = mDb.projectDao().getProjectByID(output);
+                ArrayList<Matchmaking> matchmakingList = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID);
+                for (int i=0;i<matchmakingList.size();i++){
+                    if (matchmakingList.get(i).getProjectID().contains(project1.getProjectID())){
+                        checkCurrentMatchmaking = matchmakingList.get(i);
+                    }
+                }
+                if (checkCurrentMatchmaking != null){
+                    Log.d("check", "not null");
+                    String status = checkCurrentMatchmaking.getStatus();
+                    if(status.contains("Applied")){
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                ArrayList<Matchmaking> matchmakingList = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID);
-                                if (matchmakingList.contains(project1.getProjectID())){
-                                    Matchmaking oldRecord = mMatchmakingDb.MatchmakingDao().getMatchmakingByIDs(userID,project1.getProjectID());
-                                    Matchmaking newRecord = new Matchmaking(oldRecord.getMatchmakeID(), oldRecord.getUserID(), oldRecord.getProjectID(), "Applied");
-                                    mMatchmakingDb.MatchmakingDao().updateMatchmaking(newRecord);
-                                    Log.d("Status", "Applied");
-                                }
+                                btnApply.setText("Applied");
+                                btnApply.setClickable(false);
                             }
                         });
+                    }
+                }
+            }
+        });
+        btnApply.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Executors.newSingleThreadExecutor().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        currentUser = mUserDb.userDao().getUserByUsername(user);
+                        Log.d("current user", String.valueOf(currentUser));
+                        userID = currentUser.getUserID();
+                        ArrayList<Matchmaking> matchmakingList = (ArrayList<Matchmaking>) mMatchmakingDb.MatchmakingDao().getMatchmakingByID(userID);
+                        Log.d("current ProjectID", project1.getProjectID());
+                        int size = matchmakingList.size();
+                        Log.d("matchmakingList", String.valueOf(size));
+                        for (int i=0;i<matchmakingList.size();i++){
+                            Log.d("loop","entered");
+                            Log.d("matchmakingList Project",matchmakingList.get(i).getProjectID());
+                            if (project1.getProjectID().contains(matchmakingList.get(i).getProjectID())){
+                                Matchmaking oldRecord = mMatchmakingDb.MatchmakingDao().getMatchmakingByIDs(userID,project1.getProjectID());
+                                Matchmaking newRecord = new Matchmaking(oldRecord.getMatchmakeID(), oldRecord.getUserID(), oldRecord.getProjectID(), "Applied");
+                                mMatchmakingDb.MatchmakingDao().updateMatchmaking(newRecord);
+                                Log.d("Status", "Applied");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        btnApply.setText("Applied");
+                                        btnApply.setClickable(false);
+                                    }
+                                });
+                            } else {
+                                Log.d ("Status","Failed");
+                            }
+                        }
+
                     }
                 });
             }

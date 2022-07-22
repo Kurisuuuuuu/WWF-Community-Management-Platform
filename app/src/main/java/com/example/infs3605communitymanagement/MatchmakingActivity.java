@@ -64,11 +64,11 @@ public class MatchmakingActivity extends AppCompatActivity {
         mAdapter = new ProjectAdapter(new ArrayList<Project>(), listener);
 
         //Get Intent and get message
-        Intent newIntent = getIntent();
-        user= newIntent.getStringExtra(username);
+        //Intent newIntent = getIntent();
+        //user= newIntent.getStringExtra(username);
 
-        //sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
-        //user=sharedPrefUser.getString("current user", "");
+        sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
+        user=sharedPrefUser.getString("current user", "");
         Log.d("user", user);
         //implementation of RoomDatabase
         mProjectDb = Room.databaseBuilder(getApplicationContext(), ProjectDatabase.class, "project")
