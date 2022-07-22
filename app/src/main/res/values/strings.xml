@@ -9,6 +9,7 @@
     <string name="check">Check</string>
     <string name="register">Register</string>
     <string name="username">Username</string>
+    <string name="fullname">Full Name</string>
     <string name="password">Password</string>
     <string name="enterusername">Please enter username</string>
     <string name="enterpassword">Please enter 6-10 digits password</string>
@@ -22,8 +23,11 @@
     <string name="foryou">For You</string>
     <string name="projecttheme">Project Theme: </string>
     <string name="areaofexperetise">Area of expertise required: </string>
-    <string name="entertheme">Please enter your theme</string>
+    <string name="theme">Theme</string>
     <string name="apply">Apply Now</string>
+    <string name="aboutyourself">About yourself</string>
+    <string name="expertise">Expertise</string>
+    <string name="profile">User Profile</string>
 
     <string-array name="theme_array">
         <item>Conservation, Nature and Oceans</item>

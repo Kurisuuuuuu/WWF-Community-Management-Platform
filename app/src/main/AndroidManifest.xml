@@ -30,6 +30,9 @@
             android:name=".ProjectDetailActivity"
             android:exported="false"/>
         <activity
+            android:name=".UserProfileActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MatchmakingListActivity"
             android:exported="false"/>
         <activity

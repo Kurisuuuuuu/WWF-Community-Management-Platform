@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 launchLogin();
                 return true;
             }
+            case R.id.btnProfile:{
+                launchProfile();
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -69,5 +73,9 @@ public class MainActivity extends AppCompatActivity {
     private void launchLogin(){
         Intent intentLogin = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intentLogin);
+    }
+    private void launchProfile(){
+        Intent intentProfile = new Intent(MainActivity.this, UserProfileActivity.class);
+        startActivity(intentProfile);
     }
 }
