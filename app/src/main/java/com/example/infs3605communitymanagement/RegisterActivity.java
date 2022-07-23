@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     public String user;
     private Switch swUserType;
     private boolean userType;
+    private EditText etFullName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         edtName = findViewById(R.id.etAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
         swUserType = findViewById(R.id.swUserType);
+        etFullName = findViewById(R.id.FullNameInput);
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             //error messages
@@ -70,22 +72,20 @@ public class RegisterActivity extends AppCompatActivity {
                 }else {
                     userType = false;
                 }
-                register(name, pwd, userType);
+                String fullname = etFullName.getText().toString();
+                register(name, pwd, fullname,userType);
             }
         });
     }
 
     //set username & password
-    private void register(String name, String pwd, boolean userType) {
+    private void register(String name, String pwd,String fullname,boolean userType) {
 
         TextInputLayout usernameLayout = findViewById(R.id.usernameInput);
         String usernameText = usernameLayout.getEditText().getText().toString();
 
         TextInputLayout passwordLayout = findViewById(R.id.passwordInput);
         String passwordText = passwordLayout.getEditText().getText().toString();
-
-        TextInputLayout fullNameLayout = findViewById(R.id.FullNameInput);
-        String fullNameText = fullNameLayout.getEditText().getText().toString();
 
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -107,7 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
             intent.putExtra("INTENT_USERNAME", usernameText);
             intent.putExtra("INTENT_PASSWORD", passwordText);
             intent.putExtra("INTENT_USERTYPE", "WWF Staff");
-            intent.putExtra("INTENT_FULLNAME", fullNameText);
+            intent.putExtra("INTENT_FULLNAME", fullname);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             //Curators
@@ -120,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
             intent.putExtra("INTENT_USERNAME", usernameText);
             intent.putExtra("INTENT_PASSWORD", passwordText);
             intent.putExtra("INTENT_USERTYPE", "Curator");
-            intent.putExtra("INTENT_FULLNAME", fullNameText);
+            intent.putExtra("INTENT_FULLNAME", fullname);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
