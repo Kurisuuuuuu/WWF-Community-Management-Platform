@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,34 +14,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.INFS3605CommunityManagement">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".UserListActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MatchmakingActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ProjectListActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ProjectDetailActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".UserProfileActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MatchmakingListActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".WWFMainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,7 +54,7 @@
         </activity>
         <activity
             android:name=".ExperienceActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

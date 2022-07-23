@@ -91,7 +91,7 @@
         app:layout_constraintVertical_bias="0.528">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etAnswer"
+            android:id="@+id/usernameAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enterusername" />
@@ -163,16 +163,16 @@
 
     <ImageView
         android:id="@+id/wwfLogo"
-        android:layout_width="212dp"
-        android:layout_height="363dp"
+        android:layout_width="194dp"
+        android:layout_height="342dp"
         android:layout_marginTop="-65dp"
         android:layout_marginEnd="-10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038"
+        app:layout_constraintVertical_bias="0.052"
         app:srcCompat="@drawable/login" />
 
 

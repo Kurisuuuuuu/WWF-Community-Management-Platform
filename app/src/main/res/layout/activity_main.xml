@@ -7,9 +7,9 @@
 
     <ImageButton
         android:id="@+id/iBtnAllChallenges"
-        android:layout_width="357dp"
-        android:layout_height="226dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="328dp"
+        android:layout_height="209dp"
+        android:layout_marginTop="56dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +32,8 @@
 
     <ImageButton
         android:id="@+id/iBtnForYou"
-        android:layout_width="369dp"
-        android:layout_height="224dp"
+        android:layout_width="318dp"
+        android:layout_height="205dp"
         android:layout_marginTop="52dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,12 +47,11 @@
         android:id="@+id/tvAllChallenges2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="196dp"
         android:text="@string/foryou"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtnAllChallenges" />
 </androidx.constraintlayout.widget.ConstraintLayout>

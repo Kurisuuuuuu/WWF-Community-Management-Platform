@@ -3,7 +3,6 @@ package com.example.infs3605communitymanagement;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,10 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
-import androidx.room.Room;
 
-import com.example.infs3605communitymanagement.DB.UserDatabase;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class LoginActivity extends AppCompatActivity {
@@ -53,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btn_login = findViewById(R.id.btn_login);
         Button signInWithGoogle = findViewById(R.id.signInWithGoogle);
         tvReset = findViewById(R.id.tv_reset);
-        edtName = findViewById(R.id.etAnswer);
+        edtName = findViewById(R.id.usernameAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
 
         btn_login.setOnClickListener(new View.OnClickListener() {

@@ -3,7 +3,6 @@ package com.example.infs3605communitymanagement;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        edtName = findViewById(R.id.etAnswer);
+        edtName = findViewById(R.id.usernameAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
         swUserType = findViewById(R.id.swUserType);
         Button btn_register = findViewById(R.id.btn_register);
