@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp">
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -29,7 +29,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pwd"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#D6D7D7"
             android:inputType="textPassword" />
