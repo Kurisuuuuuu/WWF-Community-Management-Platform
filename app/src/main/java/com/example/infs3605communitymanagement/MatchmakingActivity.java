@@ -183,7 +183,7 @@ public class MatchmakingActivity extends AppCompatActivity {
                             } else {
                                 mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
                                 Project projectData = projectNew.get(ii);
-                                Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
+                                Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getSdg(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
                                 mProjectDb.projectDao().updateProjects(updateProject);
                                 User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
                                 mUserDb.userDao().updateUsers(updateUser);

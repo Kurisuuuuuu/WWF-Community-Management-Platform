@@ -29,13 +29,22 @@
         app:layout_constraintTop_toTopOf="@+id/ivProject" />
 
     <TextView
+        android:id="@+id/tvProjectSDG"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
+        app:layout_constraintTop_toBottomOf="@+id/tvProjectTitle" />
+
+    <TextView
         android:id="@+id/tvProjectTheme"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvProjectTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvProjectSDG" />
 
     <TextView
         android:id="@+id/tvProjectSupportNeeded"

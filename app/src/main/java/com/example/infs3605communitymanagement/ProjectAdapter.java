@@ -87,10 +87,11 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     public void onBindViewHolder(ProjectViewHolder holder, int position) {
         Project project = mProjectFiltered.get(position);
 
-        holder.mTitle.setText(project.getProjectTitle());
+        holder.mTitle.setText("Title: "+project.getProjectTitle());
         holder.mSummary.setText(project.getProjectSummary());
-        holder.mTheme.setText(project.getTheme());
-        holder.mSupportNeeded.setText(project.getSupportNeeded());
+        holder.mTheme.setText("Challenge theme: "+project.getTheme());
+        holder.mSDG.setText("SDGs: "+project.getSdg());
+        holder.mSupportNeeded.setText("Support needed: "+project.getSupportNeeded());
         Glide.with(holder.mImage.getContext())
                 .load(project.getImageUrl())
                 .into(holder.mImage);
@@ -111,7 +112,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     }
 
     public static class ProjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mTitle, mSummary, mTheme,mSupportNeeded;
+        public TextView mTitle, mSummary, mTheme,mSupportNeeded,mSDG;
         private RecyclerviewClickListener mListener;
         public ImageView mImage;
 
@@ -121,6 +122,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             itemView.setOnClickListener(this);
             mTitle = itemView.findViewById(R.id.tvProjectTitle);
             mSummary = itemView.findViewById(R.id.tvProjectSumary);
+            mSDG = itemView.findViewById(R.id.tvProjectSDG);
             mTheme = itemView.findViewById(R.id.tvProjectTheme);
             mSupportNeeded = itemView.findViewById(R.id.tvProjectSupportNeeded);
             mImage = itemView.findViewById(R.id.ivProject);
