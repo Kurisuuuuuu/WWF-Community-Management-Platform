@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -127,6 +128,8 @@ public class ProjectDetailActivity extends AppCompatActivity {
         btnApply.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Toast.makeText(ProjectDetailActivity.this, "End of demo",Toast.LENGTH_LONG).show();
+                /*
                 Executors.newSingleThreadExecutor().execute(new Runnable() {
                     @Override
                     public void run() {
@@ -167,7 +170,7 @@ public class ProjectDetailActivity extends AppCompatActivity {
                         }
 
                     }
-                });
+                });*/
             }
         });
     }
