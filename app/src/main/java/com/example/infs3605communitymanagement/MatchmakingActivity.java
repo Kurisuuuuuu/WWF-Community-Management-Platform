@@ -63,9 +63,9 @@ public class MatchmakingActivity extends AppCompatActivity {
         };
         mAdapter = new ProjectAdapter(new ArrayList<Project>(), listener);
 
-        //Get Intent and get message
-        //Intent newIntent = getIntent();
-        //user= newIntent.getStringExtra(username);
+        // Back button
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
         user=sharedPrefUser.getString("current user", "");
@@ -266,5 +266,11 @@ public class MatchmakingActivity extends AppCompatActivity {
         intent.putExtra(ProjectDetailActivity.projectID, message);
         startActivity(intent);
         Log.d("Test", message);
+    }
+    //Back button
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

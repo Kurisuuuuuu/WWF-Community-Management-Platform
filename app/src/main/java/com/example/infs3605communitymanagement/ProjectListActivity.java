@@ -62,6 +62,10 @@ public class ProjectListActivity extends AppCompatActivity {
         });
 
         mRecyclerView.setAdapter(mAdapter);
+
+        // Back button
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     //search & sort
     @Override
@@ -110,5 +114,11 @@ public class ProjectListActivity extends AppCompatActivity {
         intent.putExtra(ProjectDetailActivity.projectID, message);
         startActivity(intent);
         Log.d("Test", message);
+    }
+    //Back button
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

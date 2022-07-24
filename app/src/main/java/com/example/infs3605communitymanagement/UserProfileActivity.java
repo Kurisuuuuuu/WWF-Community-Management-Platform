@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
@@ -69,6 +70,16 @@ public class UserProfileActivity extends AppCompatActivity {
         expertiseSpinner = findViewById(R.id.expertiseSpinner2);
         password = findViewById(R.id.etPassword);
 
+        //spinner stuff
+        ArrayAdapter<CharSequence> themeAdapter = ArrayAdapter.createFromResource(this,
+                R.array.theme_array, android.R.layout.simple_spinner_item);
+        themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        themeSpinner.setAdapter(themeAdapter);
+        ArrayAdapter<CharSequence> expertiseAdapter = ArrayAdapter.createFromResource(this,
+                R.array.expertise_array, android.R.layout.simple_spinner_item);
+        expertiseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        expertiseSpinner.setAdapter(expertiseAdapter);
+
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
@@ -79,8 +90,8 @@ public class UserProfileActivity extends AppCompatActivity {
                         username.setText(oldUser.getUsername());
                         fullname.setText(oldUser.getFullName());
                         bio.setText(oldUser.getBio());
-                        themeSpinner.setPrompt(oldUser.getImpactTheme());
-                        expertiseSpinner.setPrompt(oldUser.getSuperPower());
+                        themeSpinner.setSelection(themeAdapter.getPosition(oldUser.getImpactTheme()));
+                        expertiseSpinner.setSelection(expertiseAdapter.getPosition(oldUser.getSuperPower()));
                         password.setText(oldUser.getPassword());
                     }
                 });

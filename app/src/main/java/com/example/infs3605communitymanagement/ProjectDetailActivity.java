@@ -47,6 +47,11 @@ public class ProjectDetailActivity extends AppCompatActivity {
         output = newIntent.getStringExtra(projectID);
         Log.d("Type", output);
 
+        // Back button
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
         user=sharedPrefUser.getString("current user", "");
 
@@ -166,7 +171,12 @@ public class ProjectDetailActivity extends AppCompatActivity {
             }
         });
     }
-
+    //Back button
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 
 
 }
