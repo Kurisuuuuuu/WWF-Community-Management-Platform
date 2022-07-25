@@ -31,6 +31,9 @@ public class ExperienceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_experience);
         setTitle("Enter Experience");
 
+        // Back button
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         Button enterButton = findViewById(R.id.enterButton);
@@ -83,5 +86,11 @@ public class ExperienceActivity extends AppCompatActivity {
         Intent mainActivityIntent = new Intent(ExperienceActivity.this, MainActivity.class);
         mainActivityIntent.putExtra(MainActivity.username, username);
         startActivity(mainActivityIntent);
+    }
+    //Back button
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

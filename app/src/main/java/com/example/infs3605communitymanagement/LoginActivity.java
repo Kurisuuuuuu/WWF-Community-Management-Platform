@@ -91,21 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         tvReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MaterialAlertDialogBuilder(LoginActivity.this)
-                        .setTitle("Forget password")
-                        .setMessage("Password is displayed on the text field")
-                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String name = edtName.getText().toString();
-                                if (TextUtils.isEmpty(name)) {
-                                    Toast.makeText(LoginActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                            }
-                        })
-                        .setNegativeButton("Cancel",null)
-                        .show();
+                Toast.makeText(LoginActivity.this, "Feature not included in the demo", Toast.LENGTH_LONG).show();
             }
         });
         //Login with Google

@@ -30,20 +30,20 @@
     <string name="profile">User Profile</string>
 
     <string-array name="theme_array">
-        <item>Conservation, Nature and Oceans</item>
         <item>Climate and Energy</item>
+        <item>Conservation, Nature and Oceans</item>
         <item>Food and Agriculture</item>
-        <item>Wealth sustainability</item>
         <item>Pollution reduction</item>
         <item>Sustainable development</item>
+        <item>Wealth sustainability</item>
     </string-array>
 
     <string-array name="expertise_array">
-        <item>Technical skills and entrepreneurial mindset</item>
-        <item>Indigenous Knowledge and leadership</item>
         <item>Community building, engagement and participation</item>
-        <item>Financial sustainability, modelling and growth</item>
         <item>Environmental impact [based on the impact challenge themes]</item>
+        <item>Financial sustainability, modelling and growth</item>
+        <item>Indigenous Knowledge and leadership</item>
+        <item>Technical skills and entrepreneurial mindset</item>
     </string-array>
 
     <string-array name="experience_array">
