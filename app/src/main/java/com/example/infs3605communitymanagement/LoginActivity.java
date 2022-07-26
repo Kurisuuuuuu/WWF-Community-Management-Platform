@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtName;
@@ -40,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         //getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
         // no dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        TextInputLayout pwdInput = findViewById(R.id.textInputPassword);
+        pwdInput.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
+
         initView();
     }
 

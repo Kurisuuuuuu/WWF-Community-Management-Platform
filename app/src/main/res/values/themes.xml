@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="titleTextColor">@color/white</item>
         <!-- Customize your theme here. -->
+        <item name="android:actionMenuTextColor">@color/white</item>
 
         <!-- New MaterialComponents attributes. -->
         <item name="colorSurface">@color/black</item>
