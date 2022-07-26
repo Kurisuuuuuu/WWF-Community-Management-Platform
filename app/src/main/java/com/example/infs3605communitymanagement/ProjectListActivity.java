@@ -1,6 +1,7 @@
 package com.example.infs3605communitymanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -31,6 +32,7 @@ public class ProjectListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_project_list);
         setTitle("WWF");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
+        getWindow().setStatusBarColor(ContextCompat.getColor(ProjectListActivity.this,R.color.black));
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -14,6 +14,7 @@ import android.widget.SearchView;
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -54,6 +55,7 @@ public class MatchmakingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_project_list);
         setTitle("For You");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
+        getWindow().setStatusBarColor(ContextCompat.getColor(MatchmakingActivity.this,R.color.black));
         mRecyclerView = findViewById(R.id.tvList);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

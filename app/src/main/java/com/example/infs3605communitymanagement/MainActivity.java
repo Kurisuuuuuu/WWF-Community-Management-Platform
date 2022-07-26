@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle("WWF");
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
+        getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.black));
 
         //Get Intent and get message
         //Intent newIntent = getIntent();
