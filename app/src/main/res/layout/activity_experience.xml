@@ -5,15 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="493dp"
-        android:layout_height="824dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wallpaper" />
-
     <Spinner
         android:id="@+id/experienceSpinner"
         android:layout_width="352dp"
@@ -87,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="28dp"
         android:text="Thank you for joining us!"
         android:textColor="#000000"
         android:textSize="24sp"

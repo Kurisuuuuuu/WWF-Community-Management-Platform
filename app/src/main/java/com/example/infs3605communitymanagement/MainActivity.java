@@ -1,16 +1,22 @@
 package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     public static String username;
@@ -20,13 +26,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+        NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
+        NavController navController = navHostFragment.getNavController();
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
         setTitle("WWF");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
 
 
         //Get Intent and get message
-        Intent newIntent = getIntent();
-        username1= newIntent.getStringExtra(username);
-        Log.d("username1", username1);
+        //Intent newIntent = getIntent();
+        //username1= newIntent.getStringExtra(username);
+        //Log.d("username1", username1);
 
         //All Challenges Button
         ImageButton btnAllChallenges = findViewById(R.id.iBtnAllChallenges);
@@ -42,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View webView) {
                 Intent intent = new Intent(MainActivity.this,MatchmakingActivity.class);
-                intent.putExtra(MatchmakingActivity.username, username1);
+                //intent.putExtra(MatchmakingActivity.username, username1);
                 startActivity(intent);
             }
         });
