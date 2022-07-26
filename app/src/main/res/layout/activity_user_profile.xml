@@ -3,12 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_test">
+
+    <ImageButton
+        android:id="@+id/foryoupagebutton2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="120dp"
+        android:adjustViewBounds="true"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/foryou_icon" />
+
+    <TextView
+        android:id="@+id/welcomeText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="1dp"
+        android:text="Your Profile"
+        android:textColor="#F5F8F6"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
 
     <ScrollView
-        android:layout_width="350dp"
-        android:layout_height="match_parent"
+        android:layout_width="342dp"
+        android:layout_height="574dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,7 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="@string/username" />
+                android:text="@string/username"
+                android:textColor="#7EB143"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etUserName"
@@ -31,14 +70,18 @@
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/username" />
+                android:text="@string/username"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/fullname" />
+                android:text="@string/fullname"
+                android:textColor="#7EB143"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etFullName"
@@ -47,14 +90,18 @@
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/fullname" />
+                android:text="@string/fullname"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvBio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/aboutyourself" />
+                android:text="@string/aboutyourself"
+                android:textColor="#7EB143"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etBio"
@@ -63,18 +110,22 @@
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/aboutyourself" />
+                android:text="@string/aboutyourself"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvExpertise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/expertise" />
+                android:text="@string/expertise"
+                android:textColor="#7EB143"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/expertiseSpinner2"
-                android:layout_width="match_parent"
+                android:layout_width="322dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="8dp"
@@ -88,11 +139,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/theme" />
+                android:text="@string/theme"
+                android:textColor="#7EB143"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/themeSpinner2"
-                android:layout_width="match_parent"
+                android:layout_width="322dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
@@ -107,16 +161,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/password" />
+                android:text="@string/password"
+                android:textColor="#7EB143"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etPassword"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="@string/password"
+                android:textSize="15sp"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
         </LinearLayout>

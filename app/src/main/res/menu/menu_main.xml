@@ -5,9 +5,11 @@
     <item
         android:id="@+id/btnProfile"
         android:title="@string/profile"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:actionMenuTextColor="@color/white"/>
     <item
         android:id="@+id/btnLogout"
         android:title="@string/logout"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:actionMenuTextColor="@color/white"/>
 </menu>

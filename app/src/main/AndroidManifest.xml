@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.INFS3605CommunityManagement">
         <activity
-            android:name=".WelcomeScreen1"
+            android:name=".WelcomeScreen"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
