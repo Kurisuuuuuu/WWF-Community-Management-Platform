@@ -4,113 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/signup_background"
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
 
+
+    <TextView
+        android:id="@+id/welcomeText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:text="Fill in your details below:"
+        android:textColor="#096C0D"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInput"
         android:layout_width="350dp"
         android:layout_height="97dp"
         android:layout_margin="4dp"
+        android:layout_marginTop="50dp"
         android:hint="@string/password"
+        android:textColorHint="@android:color/black"
         app:counterEnabled="true"
         app:counterMaxLength="10"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
         app:helperText="@string/enterpassword"
         app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28"
+        app:layout_constraintVertical_bias="0.333"
         app:placeholderText="@string/password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pwd"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#D6D7D7"
-            android:inputType="textPassword" />
+            android:background="#FFFFFF"
+            android:inputType="textPassword"
+            android:textColor="@android:color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/fullNameInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
         android:text="Please enter your full name"
+        android:textColor="#FFFFFF"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="@+id/FullNameInput"
         app:layout_constraintTop_toBottomOf="@+id/FullNameInput" />
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="355dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="168dp"
+        android:layout_width="298dp"
+        android:layout_height="49dp"
+        android:background="@drawable/custom_signup"
         android:text="@string/register"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/FullNameInput"
         android:layout_width="352dp"
         android:layout_height="50dp"
-        android:background="#D6D7D7"
+        android:background="#FFFFFF"
         android:hint="Full Name"
-        android:textColor="#000000"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/swUserType"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordInput"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895" />
 
     <Switch
         android:id="@+id/swUserType"
         android:layout_width="352dp"
         android:layout_height="43dp"
+        android:layout_marginStart="5dp"
         android:minHeight="48dp"
         android:text="@string/usertype"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        app:layout_constraintVertical_bias="0.614" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameInput"
-        android:layout_width="351dp"
-        android:layout_height="81dp"
+        android:layout_width="354dp"
+        android:layout_height="84dp"
         android:hint="@string/username"
+        android:textColorHint="@android:color/black"
         app:counterEnabled="true"
         app:counterMaxLength="10"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:helperText="Please type your username"
         app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118"
+        app:layout_constraintVertical_bias="0.148"
         app:placeholderText="@string/username">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameAnswer"
-            android:layout_width="368dp"
+            android:layout_width="385dp"
             android:layout_height="50dp"
-            android:background="#D6D7D7"
+            android:background="#FFFFFF"
             android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>

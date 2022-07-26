@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private void initView() {
 
         Button btn_login = findViewById(R.id.btn_login);
-        Button signInWithGoogle = findViewById(R.id.signInWithGoogle);
+        ImageButton signInWithGoogle = findViewById(R.id.googleButton);
         tvReset = findViewById(R.id.tv_reset);
         edtName = findViewById(R.id.usernameAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
