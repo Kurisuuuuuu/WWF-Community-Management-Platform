@@ -84,7 +84,6 @@ public class ExperienceActivity extends AppCompatActivity {
         });
 
         Intent mainActivityIntent = new Intent(ExperienceActivity.this, MainActivity.class);
-        mainActivityIntent.putExtra(MainActivity.username, username);
         startActivity(mainActivityIntent);
     }
     //Back button

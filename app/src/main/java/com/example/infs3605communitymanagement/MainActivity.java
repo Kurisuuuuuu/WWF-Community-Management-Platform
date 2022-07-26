@@ -1,7 +1,6 @@
 package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setTitle("WWF");
-
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
+
 
         //Get Intent and get message
         //Intent newIntent = getIntent();
@@ -52,6 +52,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View webView) {
                 Intent intent = new Intent(MainActivity.this,MatchmakingActivity.class);
                 //intent.putExtra(MatchmakingActivity.username, username1);
+                startActivity(intent);
+            }
+        });
+        //Navigation bar
+        ImageButton forYouPageButton = findViewById(R.id.foryoupagebutton);
+        forYouPageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View webView) {
+                Intent intent = new Intent(MainActivity.this,MatchmakingActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profilePageButton = findViewById(R.id.profilepagebutton);
+        profilePageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View webView) {
+                Intent intent = new Intent(MainActivity.this,UserProfileActivity.class);
                 startActivity(intent);
             }
         });
