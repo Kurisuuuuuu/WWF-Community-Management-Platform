@@ -2,6 +2,7 @@ package com.example.infs3605communitymanagement;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
 import com.example.infs3605communitymanagement.DB.UserDatabase;
@@ -34,7 +36,8 @@ public class ExperienceActivity extends AppCompatActivity {
         // Back button
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
+        getWindow().setStatusBarColor(ContextCompat.getColor(ExperienceActivity.this,R.color.black));
 
         Button enterButton = findViewById(R.id.enterButton);
         enterButton.setOnClickListener(new View.OnClickListener() {

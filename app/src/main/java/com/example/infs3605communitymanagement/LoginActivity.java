@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         //getSupportActionBar().setTitle("WWF Community Management");
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
-        //getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
+        getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this,R.color.black));
         // no dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 

@@ -7,15 +7,17 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="0dp"
     android:clickable="true"
-    android:paddingBottom="20dp">
+    android:paddingBottom="20dp"
+    android:background="@drawable/projectlist_background">
 
     <ImageView
         android:id="@+id/ivProject"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
+        android:textColor="@color/dark_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +26,9 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivProject"
         app:layout_constraintTop_toTopOf="@+id/ivProject" />
 
@@ -34,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
+        android:textColor="#4CAF50"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectTitle" />
 
@@ -43,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
+        android:textColor="#4CAF50"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectSDG" />
 
@@ -52,6 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
+        android:textColor="#4CAF50"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectTheme" />
 
@@ -61,6 +71,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
+        android:textColor="#8BC34A"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectSupportNeeded" />
 

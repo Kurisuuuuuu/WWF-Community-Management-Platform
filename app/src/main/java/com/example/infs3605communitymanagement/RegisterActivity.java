@@ -55,16 +55,16 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = edtName.getText().toString();
                 if (TextUtils.isEmpty(name)) {
-                    Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Please enter your username", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (name.length() > 10) {
-                    Toast.makeText(RegisterActivity.this, "Username must not over 10 digits", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Username must not be over 10 digits", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String pwd = edtPwd.getText().toString();
                 if (TextUtils.isEmpty(pwd)) {
-                    Toast.makeText(RegisterActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Please enter your password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (pwd.length() < 6 || pwd.length() > 10) {
@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         editor.commit();
         //load home page
-        Toast.makeText(this, "Register success, loading to home page now", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Registration successful", Toast.LENGTH_LONG).show();
         //WWF staff
         if (userType ==true){
             sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
