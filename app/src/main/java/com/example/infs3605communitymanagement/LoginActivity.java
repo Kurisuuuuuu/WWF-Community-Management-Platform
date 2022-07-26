@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtName;
@@ -39,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         //getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
         // no dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        TextInputLayout pwdInput = findViewById(R.id.textInputPassword);
+        pwdInput.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
+
         initView();
     }
 
@@ -47,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     private void initView() {
 
         Button btn_login = findViewById(R.id.btn_login);
-        Button signInWithGoogle = findViewById(R.id.signInWithGoogle);
+        ImageButton signInWithGoogle = findViewById(R.id.googleButton);
         tvReset = findViewById(R.id.tv_reset);
         edtName = findViewById(R.id.usernameAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
