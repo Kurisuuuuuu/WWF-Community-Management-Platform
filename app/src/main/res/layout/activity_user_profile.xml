@@ -40,6 +40,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="342dp"
         android:layout_height="574dp"
         android:layout_marginTop="8dp"
@@ -179,5 +180,36 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:adjustViewBounds="true"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973"
+        app:srcCompat="@drawable/homeicon" />
+
+    <ImageButton
+        android:id="@+id/profileButtonChosen"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="-60dp"
+        android:layout_marginBottom="-5dp"
+        android:adjustViewBounds="true"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964"
+        app:srcCompat="@drawable/profileicon_chosen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
