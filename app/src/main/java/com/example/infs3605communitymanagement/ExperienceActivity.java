@@ -44,12 +44,12 @@ public class ExperienceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                launchMainActivity();
+                launchWelcomeActivity();
             }
         });
     }
 
-    private void launchMainActivity(){
+    private void launchWelcomeActivity(){
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("INTENT_USERNAME");
@@ -86,8 +86,8 @@ public class ExperienceActivity extends AppCompatActivity {
             }
         });
 
-        Intent mainActivityIntent = new Intent(ExperienceActivity.this, MainActivity.class);
-        startActivity(mainActivityIntent);
+        Intent welcomeActivityIntent = new Intent(ExperienceActivity.this, WelcomeScreen.class);
+        startActivity(welcomeActivityIntent);
     }
     //Back button
     @Override
