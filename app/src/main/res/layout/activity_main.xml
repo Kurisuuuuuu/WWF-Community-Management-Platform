@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/main_background">
+    android:layout_height="match_parent">
 
     <ImageButton
         android:id="@+id/iBtnAllChallenges"
@@ -30,9 +29,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="@+id/iBtnAllChallenges"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839"
+        app:layout_constraintVertical_bias="0.815"
         app:srcCompat="@drawable/for_you"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -55,13 +55,12 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
         android:text="All challenges"
         android:textColor="#7EB143"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/welcomeText"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="62dp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -82,52 +81,53 @@
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <TextView
-        android:id="@+id/welcomeText"
+    <ImageView
+        android:id="@+id/ivBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-5dp"
-        android:text="Hello there!"
-        android:textColor="#F5F8F6"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintTop_toBottomOf="@+id/iBtnForYou"
+        app:srcCompat="@drawable/bar" />
 
     <ImageButton
         android:id="@+id/foryoupagebutton"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="55dp"
         android:adjustViewBounds="true"
         android:background="#0000"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.354"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/iBtnHome"
+        app:layout_constraintTop_toTopOf="@+id/iBtnHome"
         app:srcCompat="@drawable/foryou_icon" />
 
     <ImageButton
         android:id="@+id/profilepagebutton"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="-60dp"
-        android:layout_marginBottom="-5dp"
+        android:layout_marginStart="55dp"
         android:adjustViewBounds="true"
         android:background="#0000"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/foryoupagebutton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.966"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/iBtnHome"
+        app:layout_constraintTop_toTopOf="@+id/iBtnHome"
         app:srcCompat="@drawable/profile_icon" />
+
+    <ImageButton
+        android:id="@+id/iBtnHome"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:adjustViewBounds="true"
+        android:background="#0000"
+        android:scaleType="centerCrop"
+        android:tint="#006D27"
+        app:layout_constraintEnd_toEndOf="@+id/ivBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBar"
+        app:srcCompat="@drawable/homeicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

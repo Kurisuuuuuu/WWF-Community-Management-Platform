@@ -119,6 +119,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="-30dp"
         android:layout_marginBottom="-15dp"
         android:textColorHint="#050505"
@@ -213,17 +214,13 @@
 
     <ImageView
         android:id="@+id/wwfLogo"
-        android:layout_width="161dp"
-        android:layout_height="264dp"
-        android:layout_marginTop="-65dp"
-        android:layout_marginEnd="-80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="412dp"
+        android:layout_height="280dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079"
-        app:srcCompat="@drawable/login" />
+        app:srcCompat="@drawable/login_page_logo" />
 
     <ImageButton
         android:id="@+id/googleButton"
