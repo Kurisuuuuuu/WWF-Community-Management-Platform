@@ -3,24 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/profile_test">
-
-    <ImageButton
-        android:id="@+id/foryoupagebutton2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="120dp"
-        android:adjustViewBounds="true"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.354"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@drawable/foryou_icon" />
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/welcomeText2"
@@ -41,11 +24,11 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="342dp"
-        android:layout_height="574dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -181,35 +164,54 @@
         </LinearLayout>
     </ScrollView>
 
+    <ImageView
+        android:id="@+id/ivBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:srcCompat="@drawable/bar" />
+
+    <ImageButton
+        android:id="@+id/foryoupagebutton2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="55dp"
+        android:adjustViewBounds="true"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/homeButton"
+        app:layout_constraintTop_toTopOf="@+id/homeButton"
+        app:srcCompat="@drawable/foryou_icon" />
+
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:layout_marginTop="48dp"
         android:adjustViewBounds="true"
         android:background="#0000"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973"
+        app:layout_constraintTop_toTopOf="@+id/ivBar2"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/homeicon" />
 
     <ImageButton
         android:id="@+id/profileButtonChosen"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="-60dp"
-        android:layout_marginBottom="-5dp"
+        android:layout_marginStart="55dp"
         android:adjustViewBounds="true"
         android:background="#0000"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.659"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964"
+        app:layout_constraintStart_toEndOf="@+id/homeButton"
+        app:layout_constraintTop_toTopOf="@+id/homeButton"
         app:srcCompat="@drawable/profileicon_chosen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
