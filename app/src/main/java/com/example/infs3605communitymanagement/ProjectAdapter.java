@@ -87,7 +87,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     public void onBindViewHolder(ProjectViewHolder holder, int position) {
         Project project = mProjectFiltered.get(position);
 
-        holder.mTitle.setText("Title: "+project.getProjectTitle());
+        holder.mTitle.setText(project.getProjectTitle());
         holder.mSummary.setText(project.getProjectSummary());
         holder.mTheme.setText("Challenge theme: "+project.getTheme());
         holder.mSDG.setText("SDGs: "+project.getSdg());
