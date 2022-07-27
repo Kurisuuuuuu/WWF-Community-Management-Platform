@@ -139,27 +139,27 @@ public class Project{
     projects.add(new Project("ID17","Bringing AI to Sustainable Development",
             "This new initiative involves the design, development, prototyping and testing of new AI solutions to assist researchers in understanding and monitoring climate change and energy usage. The development of the AI 'Arona' requires great technical skills.",
             "Climate and Energy","Technical skills and entrepreneurial mindset",
-            "17 - Partnerships for the goals","https://ak9.picdn.net/shutterstock/videos/2758379/thumb/1.jpg?ip=x480",0));
+            "17 - Partnerships for the goals","https://www.investors.com/wp-content/uploads/2017/12/Stock-ArtifIntel-01-shutt.jpg",0));
 
-    projects.add(new Project("ID18","Innovate for Wildlife & People Challenge",
-            "The experiment involved fifty-five highly skilled subject matter experts from around the world working together virtually to co-curate the portfolio and ensuring the projects were the best they could be before being presented for funding.",
-            "Sustainable development","Community building, engagement and participation",
-            "17 - Partnerships for the goals","https://ak9.picdn.net/shutterstock/videos/2758379/thumb/1.jpg?ip=x480",0));
+    projects.add(new Project("ID18","Project: Plastic-free",
+            "Through the use of new 'rubbish-fishing' technology, WWF has the exciting opportunity to clean polluted rivers, lakes and streams across the United States. Thr goals is to install pollution monitoring technology throughout the country.",
+            "Pollution Reduction","Community building, engagement and participation",
+            "17 - Partnerships for the goals","https://media.istockphoto.com/photos/waves-pushing-plastic-waste-to-the-beach-picture-id1208182476",0));
 
     projects.add(new Project("ID19","New World Research Center",
             "The project aims for the establishment of resource centers, farms and disease prevention research in third world countries that will assist in WWF's understanding of their ecology.",
             "Sustainable development","Indigenous Knowledge and leadership",
-            "17 - Partnerships for the goals","https://ak9.picdn.net/shutterstock/videos/2758379/thumb/1.jpg?ip=x480",0));
+            "17 - Partnerships for the goals","https://assets.vg247.com/current//2018/01/monster_hunter_world_Nergigante_Art.jpg",0));
 
-    projects.add(new Project("ID20","Innovate for Wildlife & People Challenge",
-            "The experiment involved fifty-five highly skilled subject matter experts from around the world working together virtually to co-curate the portfolio and ensuring the projects were the best they could be before being presented for funding.",
-            "Sustainable development","Community building, engagement and participation",
-            "17 - Partnerships for the goals","https://ak9.picdn.net/shutterstock/videos/2758379/thumb/1.jpg?ip=x480",0));
+    projects.add(new Project("ID20","Garden of Eden",
+            "In the creation of the universe, it was said that Eve ate the forbidden fruit and was imparted the forbidden knowledge of God. This project aims to return the universe back to its creation, restore the Garden of Eden, and obtain the knowledge that is rightfully ours!",
+            "Conservation, Nature and Oceans","Community building, engagement and participation",
+            "17 - Partnerships for the goals","https://static.ffx.io/images/$width_375%2C$height_211/t_crop_fill/q_86%2Cf_auto/f6374b10006b69ed9299a678b25bd14694822571",0));
 
-    projects.add(new Project("ID21","Innovate for Wildlife & People Challenge",
-            "The experiment involved fifty-five highly skilled subject matter experts from around the world working together virtually to co-curate the portfolio and ensuring the projects were the best they could be before being presented for funding.",
-            "Sustainable development","Community building, engagement and participation",
-            "17 - Partnerships for the goals","https://ak9.picdn.net/shutterstock/videos/2758379/thumb/1.jpg?ip=x480",0));
+    projects.add(new Project("ID21","Controlled burning",
+            "Controlled burning was once a technique used by Indigenous Australians to prevent bushfires. Join us as we use geospatial analysis, meteorological reports and other sciences to predict and prevent bushfires.",
+            "Sustainable development","Technical skills and entrepreneurial mindset",
+            "17 - Partnerships for the goals","https://upload.wikimedia.org/wikipedia/commons/c/cc/USFWS_Resilient_Landscapes_%2817223539378%29.jpg",0));
 
 
     return projects;
