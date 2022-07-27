@@ -24,9 +24,9 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:scrollbarStyle="outsideInset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,16 +107,23 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/expertiseSpinner2"
-                android:layout_width="322dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/enteranswer"
-                android:entries="@array/expertise_array"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/themeSpinner" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/spinner_border">
+
+                <Spinner
+                    android:id="@+id/expertiseSpinner2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="0dp"
+                    android:contentDescription="@string/enteranswer"
+                    android:dropDownWidth="match_parent"
+                    android:entries="@array/expertise_array"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tvTheme"
@@ -128,17 +135,22 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/themeSpinner2"
-                android:layout_width="322dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:contentDescription="@string/enteranswer"
-                android:dropDownWidth="match_parent"
-                android:entries="@array/theme_array"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/guidingText" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/spinner_border">
+
+                <Spinner
+                    android:id="@+id/themeSpinner2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="0dp"
+                    android:contentDescription="@string/enteranswer"
+                    android:dropDownWidth="match_parent"
+                    android:entries="@array/theme_array"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/guidingText" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tvPassword"
@@ -168,7 +180,6 @@
         android:id="@+id/ivBar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

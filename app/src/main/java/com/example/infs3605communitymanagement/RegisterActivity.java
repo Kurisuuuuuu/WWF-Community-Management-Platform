@@ -46,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void initView() {
         edtName = findViewById(R.id.usernameAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
-        swUserType = findViewById(R.id.swUserType);
         etFullName = findViewById(R.id.FullNameInput);
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -70,11 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
                 if (pwd.length() < 6 || pwd.length() > 10) {
                     Toast.makeText(RegisterActivity.this, "Password must be within 6-10 digits", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if (swUserType.isChecked()){
-                    userType = true;
-                }else {
-                    userType = false;
                 }
                 String fullname = etFullName.getText().toString();
                 register(name, pwd, fullname,userType);

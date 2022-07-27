@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/experienceSpinner"
-        android:layout_width="352dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="36dp"
-        android:contentDescription="@string/enteranswer"
-        android:entries="@array/experience_array"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expertiseSpinner" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Impactio uses an automated matchmaking system to recommend challenges to you based on the following criteria:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="98dp"
         android:layout_height="23dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
         android:text="Experience"
         android:textColor="#070505"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/themeSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/expertiseSpinner"
-        app:layout_constraintVertical_bias="0.033" />
+        android:textStyle="bold" />
 
-    <Spinner
-        android:id="@+id/expertiseSpinner"
-        android:layout_width="352dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:contentDescription="@string/enteranswer"
-        android:entries="@array/expertise_array"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/themeSpinner" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_border">
+
+        <Spinner
+            android:id="@+id/expertiseSpinner"
+            android:layout_width="352dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:contentDescription="@string/enteranswer"
+            android:entries="@array/expertise_array" />
+    </RelativeLayout>
 
 
     <TextView
@@ -47,68 +47,59 @@
         android:layout_width="85dp"
         android:layout_height="25dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
         android:text="@string/expertise"
         android:textColor="#0B0909"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/themeSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/themeSpinner"
-        app:layout_constraintVertical_bias="0.031" />
+        android:textStyle="bold" />
 
-    <Spinner
-        android:id="@+id/themeSpinner"
-        android:layout_width="352dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:contentDescription="@string/enteranswer"
-        android:dropDownWidth="match_parent"
-        android:entries="@array/theme_array"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="195dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_border">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="342dp"
-        android:layout_height="103dp"
-        android:text="Impactio uses an automated matchmaking system to recommend challenges to you based on the following criteria:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        <Spinner
+            android:id="@+id/themeSpinner"
+            android:layout_width="352dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:contentDescription="@string/enteranswer"
+            android:dropDownWidth="match_parent"
+            android:entries="@array/theme_array" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
         android:text="@string/theme"
         android:textColor="#050505"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/themeSpinner"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_border">
+
+        <Spinner
+            android:id="@+id/experienceSpinner"
+            android:layout_width="352dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:contentDescription="@string/enteranswer"
+            android:entries="@array/experience_array" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/enterButton"
-        android:layout_width="327dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/custom_signup"
         android:text="Enter"
-        android:textColor="#F8F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/experienceSpinner"
-        app:layout_constraintVertical_bias="0.009" />
+        android:textColor="#F8F5F5" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
