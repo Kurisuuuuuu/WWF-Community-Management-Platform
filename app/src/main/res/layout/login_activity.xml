@@ -84,13 +84,11 @@
 
 
 
-
-
     ]]>
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="300dp"
+        android:layout_width="308dp"
         android:layout_height="56dp"
         android:background="@drawable/custom_login"
         android:text="@string/login"
@@ -100,11 +98,11 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_reset"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <Button
         android:id="@+id/btnRegisterNew"
-        android:layout_width="300dp"
+        android:layout_width="224dp"
         android:layout_height="52dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_signup"
@@ -121,18 +119,19 @@
         android:id="@+id/textInputLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginEnd="-30dp"
         android:layout_marginBottom="-15dp"
         android:textColorHint="#050505"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wwfLogo"
-        app:layout_constraintVertical_bias="0.067">
+        app:layout_constraintVertical_bias="0.032">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameAnswer"
-            android:layout_width="match_parent"
+            android:layout_width="312dp"
             android:layout_height="wrap_content"
             android:hint="@string/enterusername"
             android:textColor="#100F0F"
@@ -143,17 +142,19 @@
         android:id="@+id/textInputPassword"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="-30dp"
         android:textColorHint="#090909"
         app:endIconMode="password_toggle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.098">
+        app:layout_constraintVertical_bias="0.099">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pwd"
-            android:layout_width="match_parent"
+            android:layout_width="311dp"
             android:layout_height="wrap_content"
             android:hint="@string/enterpassword"
             android:textSize="15sp" />
@@ -192,10 +193,10 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputPassword"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <TextView
         android:id="@+id/orText"
@@ -212,25 +213,26 @@
 
     <ImageView
         android:id="@+id/wwfLogo"
-        android:layout_width="410dp"
-        android:layout_height="300dp"
-        android:scaleType="centerCrop"
+        android:layout_width="161dp"
+        android:layout_height="264dp"
+        android:layout_marginTop="-65dp"
+        android:layout_marginEnd="-80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/login_page_logo" />
+        app:layout_constraintVertical_bias="0.079"
+        app:srcCompat="@drawable/login" />
 
     <ImageButton
         android:id="@+id/googleButton"
-        android:layout_width="300dp"
+        android:layout_width="332dp"
         android:layout_height="56dp"
         android:layout_marginTop="3dp"
         android:adjustViewBounds="true"
         android:background="#0000"
-        android:scaleType="centerInside"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
