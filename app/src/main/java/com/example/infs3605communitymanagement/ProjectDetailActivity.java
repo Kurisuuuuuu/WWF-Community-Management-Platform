@@ -86,10 +86,10 @@ public class ProjectDetailActivity extends AppCompatActivity {
                             projectTitle.setText(project1.getProjectTitle().toString());
                             TextView projectSummary = findViewById(R.id.tvProjectDetailSummary);
                             projectSummary.setText(project1.getProjectSummary());
-                            TextView projectTheme = findViewById(R.id.tvProjectThemeText);
-                            projectTheme.setText(project1.getTheme());
-                            TextView areaOfExpertise = findViewById(R.id.tvAreaofExpertiseText);
-                            areaOfExpertise.setText(project1.getSupportNeeded());
+                            TextView projectTheme = findViewById(R.id.tvProjectDetailTheme);
+                            projectTheme.setText("Project Theme: "+project1.getTheme());
+                            TextView areaOfExpertise = findViewById(R.id.tvAreaofExpertise);
+                            areaOfExpertise.setText("Area of Expertise Required: "+project1.getSupportNeeded());
                             ImageView projectImage = findViewById(R.id.ivProjectImage);
                             Glide.with(projectImage)
                                     .load(project1.getImageUrl())
