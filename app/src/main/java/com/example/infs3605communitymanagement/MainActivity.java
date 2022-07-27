@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("WWF");
+        setTitle("Home Page");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.black));
 
@@ -88,10 +88,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.btnLogout: {
                 launchLogin();
-                return true;
-            }
-            case R.id.btnProfile:{
-                launchProfile();
                 return true;
             }
             default:
