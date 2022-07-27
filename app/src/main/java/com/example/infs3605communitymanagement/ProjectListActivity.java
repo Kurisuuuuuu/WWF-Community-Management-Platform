@@ -30,7 +30,7 @@ public class ProjectListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_list);
-        setTitle("WWF");
+        setTitle("All Challenges");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
         getWindow().setStatusBarColor(ContextCompat.getColor(ProjectListActivity.this,R.color.black));
         mRecyclerView = findViewById(R.id.tvList);
