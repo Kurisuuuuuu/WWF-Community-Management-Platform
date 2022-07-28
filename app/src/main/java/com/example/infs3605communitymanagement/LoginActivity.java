@@ -34,14 +34,16 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //dark mode
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        //getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this,R.color.black));
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        getSupportActionBar().hide();
+
         //getSupportActionBar().setTitle("WWF Community Management");
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
-        getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this,R.color.black));
-        // no dark mode
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
         TextInputLayout pwdInput = findViewById(R.id.textInputPassword);
         pwdInput.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
