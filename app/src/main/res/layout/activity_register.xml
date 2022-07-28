@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup_background"
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
@@ -15,23 +14,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
+        android:fontFamily="@font/abel"
         android:text="Fill in your details below:"
         android:textColor="#096C0D"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInput"
         android:layout_width="350dp"
         android:layout_height="97dp"
         android:layout_margin="4dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="-20dp"
         android:hint="@string/password"
         android:textColorHint="@android:color/black"
         app:counterEnabled="true"
@@ -40,13 +40,13 @@
         app:errorEnabled="true"
         app:helperText="@string/enterpassword"
         app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/white"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333"
+        app:layout_constraintTop_toBottomOf="@+id/usernameInput"
+        app:layout_constraintVertical_bias="0.055"
         app:placeholderText="@string/password">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -62,10 +62,10 @@
         android:id="@+id/fullNameInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:text="Please enter your full name"
-        android:textColor="#FFFFFF"
+        android:textColor="#070606"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="@+id/FullNameInput"
         app:layout_constraintTop_toBottomOf="@+id/FullNameInput" />
@@ -88,12 +88,13 @@
         android:id="@+id/FullNameInput"
         android:layout_width="352dp"
         android:layout_height="50dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="32dp"
         android:background="#FFFFFF"
         android:hint="Full Name"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
 
@@ -109,13 +110,13 @@
         app:errorEnabled="true"
         app:helperText="Please type your username"
         app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/white"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148">
+        app:layout_constraintVertical_bias="0.118">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameAnswer"
