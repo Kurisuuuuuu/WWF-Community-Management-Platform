@@ -183,7 +183,7 @@ public class User{
             "[Technical skills and entrepreneurial mindset, Regenerative design and development, Community building, engagement and participation]",
             "Health services ","4-6 years"));
     users.add(new User("5","Gena34","Gena Zhang","Supporter",
-            "Gena Zhang. Did you ever hear the tragedy of Darth Plagueis the Wise? I though not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life.",
+            "With 7+ years experience in the Construction industry as a financial consultant for large-scale development projects, Gena Zhang is familiar with leadership, project management and the environmental impact of her work",
             "Clean Water and Sanitation, Reduced Inequalities, Responsible Consumption and Production, Partnerships for the Goals",
             "Climate and Energy, Nature and Ocean","5 June 2022, 11 pm GMT","1-hour a week",
             1,0,0,"abc123",
@@ -211,7 +211,7 @@ public class User{
             "[Indigenous Knowledge and leadership, Regenerative design and development]",
             "Education","0-1 years"));
     users.add(new User("9","Aisha7","Aisha Vasquez","Project Leader",
-            "Aisha Vasquez. I'm not exactly someone that gets spooked that easily. I can handle horror, creepy games, jumpscares or whatever. I usually even enjoy them. But something about Minecraft is just so terrifying to me.",
+            "Aisha Vasquez is a skilled software developer and project leader, over 4+ years experience in software engineering and programming languages such as C++, Java and SQL. She has worked for firms such as Deloitte and Atlassian, and is formal member of Social Inc.",
             "Industry Innovation and Infrastructure, Life on Land, Zero Hunger, No Poverty",
             "Nature and Ocean","4 June 2022, 10 pm GMT","1-hour a week",
             1,0,0,"abc123",
