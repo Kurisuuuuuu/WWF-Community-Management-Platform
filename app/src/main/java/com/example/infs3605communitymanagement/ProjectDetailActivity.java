@@ -90,6 +90,8 @@ public class ProjectDetailActivity extends AppCompatActivity {
                             projectTheme.setText("Project Theme: "+project1.getTheme());
                             TextView areaOfExpertise = findViewById(R.id.tvAreaofExpertise);
                             areaOfExpertise.setText("Area of Expertise Required: "+project1.getSupportNeeded());
+                            TextView sdg = findViewById(R.id.tvSDG);
+                            sdg.setText("SDGs: "+project1.getSdg());
                             ImageView projectImage = findViewById(R.id.ivProjectImage);
                             Glide.with(projectImage)
                                     .load(project1.getImageUrl())

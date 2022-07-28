@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -99,6 +100,23 @@ public class UserProfileActivity extends AppCompatActivity {
                         password.setText(oldUser.getPassword());
                     }
                 });
+            }
+        });
+        //Navigation bar
+        ImageButton forYouPageButton = findViewById(R.id.foryoupagebutton2);
+        forYouPageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View webView) {
+                Intent intent = new Intent(UserProfileActivity.this,MatchmakingActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton homePageButton = findViewById(R.id.homeButton);
+        homePageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View webView) {
+                Intent intent = new Intent(UserProfileActivity.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }

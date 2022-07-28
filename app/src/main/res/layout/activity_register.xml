@@ -53,8 +53,9 @@
             android:id="@+id/edt_pwd"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/spinner_border"
             android:inputType="textPassword"
+            android:paddingStart="10dp"
             android:textColor="@android:color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
+        android:paddingStart="10dp"
         android:text="Please enter your full name"
         android:textColor="#070606"
         android:textSize="12dp"
@@ -88,10 +90,10 @@
         android:id="@+id/FullNameInput"
         android:layout_width="352dp"
         android:layout_height="50dp"
-        android:layout_marginStart="-3dp"
         android:layout_marginTop="32dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/spinner_border"
         android:hint="Full Name"
+        android:paddingStart="10dp"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"
@@ -100,7 +102,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameInput"
-        android:layout_width="354dp"
+        android:layout_width="350dp"
         android:layout_height="84dp"
         android:hint="@string/username"
         android:textColorHint="@android:color/black"
@@ -120,9 +122,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameAnswer"
-            android:layout_width="385dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/spinner_border"
+            android:paddingStart="10dp"
             android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
