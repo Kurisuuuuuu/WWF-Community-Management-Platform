@@ -22,7 +22,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:scrollbarStyle="outsideInset"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,13 +104,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/spinner_border">
 
                 <Spinner
                     android:id="@+id/expertiseSpinner2"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:layout_marginStart="0dp"
                     android:contentDescription="@string/enteranswer"
                     android:dropDownWidth="match_parent"
                     android:entries="@array/expertise_array"
@@ -132,6 +132,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/spinner_border">
 
                 <Spinner
