@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -17,9 +18,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
+import androidx.room.Room;
 
+import com.example.infs3605communitymanagement.DB.UserDatabase;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtName;
@@ -31,18 +39,15 @@ public class LoginActivity extends AppCompatActivity {
     public String savedPassword;
     public Button tvRegister;
     public TextView tvReset;
+    private UserDatabase mUserDb;
+    public User currentUser;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //dark mode
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        //getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivity.this,R.color.black));
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-
-        //getSupportActionBar().setTitle("WWF Community Management");
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
 
 
         TextInputLayout pwdInput = findViewById(R.id.textInputPassword);
@@ -115,26 +120,48 @@ public class LoginActivity extends AppCompatActivity {
 
     //login and error messages
     private void login(String name, String pwd) {
+        //database
+        mUserDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
+                .fallbackToDestructiveMigration()
+                .build();
+        final boolean[] runCheck = {false};
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                currentUser = mUserDb.userDao().getUserByUsername(name);
+                Log.d("current user", String.valueOf(currentUser));
+                runCheck[0] = true;
+            }
+        });
         sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
         savedPassword=sharedPref.getString(name, "");
         sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
         SharedPreferences.Editor editorUser = sharedPrefUser.edit();
-        if (savedPassword.contains(pwd) && savedPassword.contains("!w!w!f!")) {
-            editorUser.putString("current user",name);
-            editorUser.commit();
-            Intent intent = new Intent(this, WWFMainActivity.class);
-            startActivity(intent);
-            Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
-        } else if (savedPassword.equals(pwd)) {
-            editorUser.putString("current user",name);
-            Log.d("username", name);
-            editorUser.commit();
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra(MainActivity.username, name);
-            startActivity(intent);
-            Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show();
-        } else{
-            Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_LONG).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (currentUser==null){
+                        Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_LONG).show();
+                    } else {
+                        if (currentUser.getPassword().contains(pwd) && savedPassword.contains("!w!w!f!")) {
+                            editorUser.putString("current user",name);
+                            editorUser.commit();
+                            Intent intent = new Intent(LoginActivity.this, WWFMainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_LONG).show();
+                        } else if (currentUser.getPassword().equals(pwd)) {
+                            editorUser.putString("current user",name);
+                            Log.d("username", name);
+                            editorUser.commit();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra(MainActivity.username, name);
+                            startActivity(intent);
+                            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_LONG).show();
+                        } else{
+                            Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+            }, 100);
         }
-    }
 }
