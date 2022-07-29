@@ -16,7 +16,7 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
         getWindow().setStatusBarColor(ContextCompat.getColor(WelcomeScreen.this,R.color.black));
-        setTitle("Welcome");
+        setTitle("Welcome to Impactio!");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_green)));
 
         Button startButton = findViewById(R.id.startButton);
