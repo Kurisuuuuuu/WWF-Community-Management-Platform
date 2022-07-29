@@ -1,5 +1,6 @@
 package com.example.infs3605communitymanagement;
 
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,9 +90,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
         holder.mTitle.setText(project.getProjectTitle());
         holder.mSummary.setText(project.getProjectSummary());
-        holder.mTheme.setText("Challenge theme: "+project.getTheme());
-        holder.mSDG.setText("SDGs: "+project.getSdg());
-        holder.mSupportNeeded.setText("Support needed: "+project.getSupportNeeded());
+        holder.mTheme.setText(Html.fromHtml("<b>"+"Challenge theme: "+"</b> "+project.getTheme()));
+        holder.mSDG.setText(Html.fromHtml("<b>"+"SDGs: "+"</b> "+project.getSdg()));
+        holder.mSupportNeeded.setText(Html.fromHtml("<b>"+"Support needed: "+"</b> "+project.getSupportNeeded()));
         Glide.with(holder.mImage.getContext())
                 .load(project.getImageUrl())
                 .into(holder.mImage);

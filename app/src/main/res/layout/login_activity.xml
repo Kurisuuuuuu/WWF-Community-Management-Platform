@@ -124,45 +124,36 @@
         android:id="@+id/textInputLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="-30dp"
-        android:layout_marginBottom="-15dp"
+        android:layout_marginTop="50dp"
         android:textColorHint="#050505"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wwfLogo"
-        app:layout_constraintVertical_bias="0.037">
+        app:layout_constraintTop_toBottomOf="@+id/wwfLogo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enterusername"
             android:textColor="#100F0F"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputPassword"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="-30dp"
+        android:layout_marginTop="40dp"
         android:textColorHint="#090909"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.093">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enterpassword"
             android:textSize="15sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,15 +161,13 @@
         android:id="@+id/usernameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:fontFamily="@font/abel"
         android:text="Username"
         android:textColor="#0B0909"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/wwfLogo" />
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout" />
 
     <TextView
         android:id="@+id/passwordLabel"
@@ -190,14 +179,12 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textInputPassword"
-        app:layout_constraintStart_toStartOf="@+id/textInputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="@+id/textInputPassword" />
 
     <Button
         android:id="@+id/tv_reset"
         android:layout_width="114dp"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="-10dp"
         android:background="@color/dark_green"
         android:text="Forgot Password?"
@@ -225,8 +212,9 @@
 
     <ImageView
         android:id="@+id/wwfLogo"
-        android:layout_width="412dp"
-        android:layout_height="280dp"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +235,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orText"
         app:layout_constraintVertical_bias="0.037"
-        app:srcCompat="@drawable/google_signin" />
+        app:srcCompat="@drawable/google_signin"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

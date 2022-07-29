@@ -6,33 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".WelcomeScreen">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="347dp"
-        android:layout_height="421dp"
-        android:fontFamily="@font/abel"
-        android:text="Thank you for signing up - welcome to the Impactio community!"
-        android:textColor="@color/dark_green"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.269" />
+        app:srcCompat="@drawable/welcome_screen_edited" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/abel"
+        android:text="@string/welcomescreen"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="153dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/custom_welcomebutton"
         android:text="Let's get started!"
         android:textColor="#FAF9F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

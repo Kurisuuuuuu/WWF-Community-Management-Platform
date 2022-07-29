@@ -26,25 +26,38 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
         android:fontFamily="@font/abel"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvProjectSumary"
         app:layout_constraintStart_toEndOf="@+id/ivProject"
-        app:layout_constraintTop_toTopOf="@+id/ivProject" />
+        app:layout_constraintTop_toTopOf="@+id/ivProject"
+        app:layout_constraintVertical_bias="0.23000002" />
+
+    <TextView
+        android:id="@+id/tvProjectSumary"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/abel"
+        android:text="TextView"
+        android:textColor="#090B06"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
+        app:layout_constraintTop_toBottomOf="@+id/ivProject" />
 
     <TextView
         android:id="@+id/tvProjectSDG"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/abel"
         android:text="TextView"
         android:textColor="#070707"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
-        app:layout_constraintTop_toBottomOf="@+id/tvProjectTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvProjectSumary" />
 
     <TextView
         android:id="@+id/tvProjectTheme"
@@ -54,7 +67,7 @@
         android:fontFamily="@font/abel"
         android:text="TextView"
         android:textColor="#040505"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectSDG" />
@@ -67,20 +80,8 @@
         android:fontFamily="@font/abel"
         android:text="TextView"
         android:textColor="#050705"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
         app:layout_constraintTop_toBottomOf="@+id/tvProjectTheme" />
-
-    <TextView
-        android:id="@+id/tvProjectSumary"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/abel"
-        android:text="TextView"
-        android:textColor="#090B06"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvProjectTheme"
-        app:layout_constraintTop_toBottomOf="@+id/tvProjectSupportNeeded" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

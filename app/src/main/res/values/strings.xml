@@ -28,6 +28,8 @@
     <string name="aboutyourself">About yourself</string>
     <string name="expertise">Expertise</string>
     <string name="profile">User Profile</string>
+    <string name="enterfullname">Please enter full name</string>
+    <string name="welcomescreen">Thank you for signing up - welcome to the Impactio community!</string>
 
     <string-array name="theme_array">
         <item>Climate and Energy</item>

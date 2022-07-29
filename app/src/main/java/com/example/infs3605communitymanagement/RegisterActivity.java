@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void initView() {
         edtName = findViewById(R.id.usernameAnswer);
         edtPwd = findViewById(R.id.edt_pwd);
-        etFullName = findViewById(R.id.FullNameInput);
+        etFullName = findViewById(R.id.fullnameAnswer);
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             //error messages

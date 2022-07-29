@@ -180,18 +180,28 @@ public class MatchmakingActivity extends AppCompatActivity {
                                 Log.d("id1",id1);
                                 if(id2 != null) {
                                     Log.d("id2", id2);
+                                    if (projectNew.get(ii).getProjectID().contains(id1) || projectNew.get(ii).getProjectID().contains(id2)){
+
+                                    } else {
+                                        mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
+                                        Project projectData = projectNew.get(ii);
+                                        Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getSdg(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
+                                        mProjectDb.projectDao().updateProjects(updateProject);
+                                        User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
+                                        mUserDb.userDao().updateUsers(updateUser);
+                                    }
+                                } else if (projectNew.get(ii).getProjectID().contains(id1)){
+
+                                } else {
+                                    mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
+                                    Project projectData = projectNew.get(ii);
+                                    Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getSdg(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
+                                    mProjectDb.projectDao().updateProjects(updateProject);
+                                    User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
+                                    mUserDb.userDao().updateUsers(updateUser);
                                 }
                             }
-                            if (projectNew.get(ii).getProjectID().contains(id1) || projectNew.get(ii).getProjectID().contains(id2)){
 
-                            } else {
-                                mMatchmakingDb.MatchmakingDao().insertMatchmaking(new Matchmaking(UUID.randomUUID().toString(),userID, projectNew.get(ii).getProjectID(),"Recommended"));
-                                Project projectData = projectNew.get(ii);
-                                Project updateProject = new Project(projectData.getProjectID(),projectData.getProjectTitle(),projectData.getProjectSummary(),projectData.getTheme(),projectData.getSupportNeeded(),projectData.getSdg(),projectData.getImageUrl(),projectData.getCuratorAssigned()+1);
-                                mProjectDb.projectDao().updateProjects(updateProject);
-                                User updateUser = new User(currentUser.getUserID(), currentUser.getUsername(),currentUser.getFullName(),currentUser.getUserType(),currentUser.getBio(),currentUser.getPreferredSDGs(),currentUser.getImpactTheme(),currentUser.getLastLogin(),currentUser.getAvailability(),currentUser.getProjectsCanBeAssigned(),currentUser.getCommentsNumber(),currentUser.getChallengesNumber()+1,currentUser.getPassword(),currentUser.getSuperPower(),currentUser.getIndustry(),currentUser.getExperience());
-                                mUserDb.userDao().updateUsers(updateUser);
-                            }
                         }
                         runOnUiThread(new Runnable() {
                             @Override
