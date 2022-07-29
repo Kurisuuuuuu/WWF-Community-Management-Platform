@@ -13,4 +13,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/tvNoMatch1"
+            android:layout_width="264dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="76dp"
+            android:text="Unfortunately, we could not recommend any projects based off your experience."
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNoMatch2"
+            android:layout_width="264dp"
+            android:layout_height="86dp"
+            android:text="We wil notify you in the future when projects are available!"
+            android:textAlignment="center"
+            android:textColor="#454545"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/tvNoMatch1"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/tvNoMatch1"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoMatch1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

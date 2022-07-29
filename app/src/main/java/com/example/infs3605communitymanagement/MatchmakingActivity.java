@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +50,9 @@ public class MatchmakingActivity extends AppCompatActivity {
     public String id1 = " ";
     public String id2 = " ";
 
+    private TextView noMatchText1;
+    private TextView noMatchText2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +74,11 @@ public class MatchmakingActivity extends AppCompatActivity {
         // Back button
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        noMatchText1 = findViewById(R.id.tvNoMatch1);
+        noMatchText2 = findViewById(R.id.tvNoMatch2);
+        noMatchText1.setVisibility(View.INVISIBLE);
+        noMatchText2.setVisibility(View.INVISIBLE);
 
         sharedPrefUser = getSharedPreferences(user, MODE_PRIVATE);
         user=sharedPrefUser.getString("current user", "");
@@ -161,6 +170,18 @@ public class MatchmakingActivity extends AppCompatActivity {
                         }
                     } else if(project.size()==0){
                         Log.d("project", "Does not match");
+
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+
+                                noMatchText1.setVisibility(View.VISIBLE);
+                                noMatchText2.setVisibility(View.VISIBLE);
+
+                            }
+                        });
+
                     } else {
                         for (int i = 0; i < project.size(); i++) {
                             if (id1 != project.get(i).getProjectID() && id2 != project.get(i).getProjectID()){
