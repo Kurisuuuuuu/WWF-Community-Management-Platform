@@ -66,10 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please enter your password", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (pwd.length() < 6 || pwd.length() > 10) {
-                    Toast.makeText(RegisterActivity.this, "Password must be within 6-10 digits", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 String fullname = etFullName.getText().toString();
                 register(name, pwd, fullname,userType);
             }

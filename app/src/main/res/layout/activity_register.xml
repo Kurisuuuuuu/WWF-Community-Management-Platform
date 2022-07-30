@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:textColorHint="@android:color/black"
-        app:counterEnabled="true"
+        app:counterEnabled="false"
         app:counterMaxLength="10"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"

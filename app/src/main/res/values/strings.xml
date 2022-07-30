@@ -12,7 +12,7 @@
     <string name="fullname">Full Name</string>
     <string name="password">Password</string>
     <string name="enterusername">Please enter username</string>
-    <string name="enterpassword">Please enter 6-10 digits password</string>
+    <string name="enterpassword">Please enter password</string>
     <string name="forgetpassword">Forget Password</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>

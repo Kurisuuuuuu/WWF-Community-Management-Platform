@@ -84,10 +84,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (pwd.length() < 6 || pwd.length() > 10) {
-                    Toast.makeText(LoginActivity.this, "Password must be within 6-10 digits", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 login(name, pwd);
             }
         });

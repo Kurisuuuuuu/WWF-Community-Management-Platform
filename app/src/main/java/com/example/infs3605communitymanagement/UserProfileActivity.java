@@ -143,20 +143,26 @@ public class UserProfileActivity extends AppCompatActivity {
         mDb = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user")
                 .fallbackToDestructiveMigration()
                 .build();
-
-        newUser = new User(oldUser.getUserID(),username.getText().toString(),fullname.getText().toString(), oldUser.getUserType(), bio.getText().toString(), oldUser.getPreferredSDGs(),themeSpinner.getSelectedItem().toString(),oldUser.getLastLogin(), oldUser.getAvailability(), oldUser.getProjectsCanBeAssigned(),oldUser.getCommentsNumber(), oldUser.getChallengesNumber(), password.getText().toString(),expertiseSpinner.getSelectedItem().toString(), oldUser.getIndustry(), oldUser.getExperience());
-        Executors.newSingleThreadExecutor().execute(new Runnable() {
-            @Override
-            public void run() {
-                mDb.userDao().updateUsers(newUser);
-            }
-        });
-        Toast.makeText(UserProfileActivity.this, "User details updated", Toast.LENGTH_SHORT).show();
-        sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.remove(oldUser.getUsername());
-        editor.putString(username.getText().toString(),password.getText().toString());
-        editor.commit();
+        if (username.getText().toString().length()>10){
+            Toast.makeText(UserProfileActivity.this, "Username must not be over 10 digits", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            newUser = new User(oldUser.getUserID(),username.getText().toString(),fullname.getText().toString(), oldUser.getUserType(), bio.getText().toString(), oldUser.getPreferredSDGs(),themeSpinner.getSelectedItem().toString(),oldUser.getLastLogin(), oldUser.getAvailability(), oldUser.getProjectsCanBeAssigned(),oldUser.getCommentsNumber(), oldUser.getChallengesNumber(), password.getText().toString(),expertiseSpinner.getSelectedItem().toString(), oldUser.getIndustry(), oldUser.getExperience());
+            Executors.newSingleThreadExecutor().execute(new Runnable() {
+                @Override
+                public void run() {
+                    mDb.userDao().updateUsers(newUser);
+                }
+            });
+            Toast.makeText(UserProfileActivity.this, "User details updated", Toast.LENGTH_SHORT).show();
+            sharedPref = getSharedPreferences(savedLogin, MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.remove(oldUser.getUsername());
+            editor.putString(username.getText().toString(),password.getText().toString());
+            editor.commit();
+            Intent intent = new Intent(UserProfileActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
     //Back button
     @Override
