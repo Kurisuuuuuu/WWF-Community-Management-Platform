@@ -21,12 +21,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/abel"
                 android:paddingLeft="5dp"
-                android:text="Challenges for you"
+                android:text="All challenges"
                 android:textColor="#7EB143"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -53,13 +53,13 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/abel"
                 android:paddingLeft="5dp"
-                android:text="All challenges"
+                android:text="Challenges for you"
                 android:textColor="#7EB143"
                 android:textSize="25sp"
                 android:textStyle="bold" />
